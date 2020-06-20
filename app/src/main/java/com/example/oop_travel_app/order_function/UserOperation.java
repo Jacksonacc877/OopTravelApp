@@ -2,15 +2,28 @@ package com.example.oop_travel_app.order_function;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.database_function.DBOperation;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class UserOperation {
 	Context context;
 	DBOperation  dbo ;
 	public FirestoreHelper fsh;
+
+	public String getOperatinonState() {
+		return operatinonState;
+	}
+
+	private String operatinonState="";
 
 	public UserOperation(Context c){
 		this.context=c;
@@ -22,6 +35,7 @@ public class UserOperation {
 	public boolean bookATrip(Order order){
 		int maxID=-1;
 		int booked=0;
+		List<Integer> orders=new ArrayList();
 
 		int tripID=order.getTripID();
 		int numOfAdult=order.getNumOfAdult();
@@ -34,9 +48,11 @@ public class UserOperation {
 		for (Order o:fsh.mOrders){
 			if (o.getTripID()==tripID)booked+=o.getNumOfAdult()+o.getNumOfInfant()+o.getNumOfChild();
 			if (o.getOrderID()>maxID) maxID=o.getOrderID();
+			if (o.getUserID().equals(order.getUserID()))orders.add(o.getOrderID());
+
 		}
 		if(upperBound>(booked+numOfAdult+numOfChild+numOfInfant)){
-			fsh.newOrder(order,maxID,booked);
+			fsh.newOrder(order,maxID,booked,orders);
 			System.out.println("order successful");
 			return true ;
 		}else{
