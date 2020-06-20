@@ -18,12 +18,12 @@ public class UserOperation {
 	Context context;
 	DBOperation  dbo ;
 	public FirestoreHelper fsh;
+	private String operatinonState="";
+
 
 	public String getOperatinonState() {
 		return operatinonState;
 	}
-
-	private String operatinonState="";
 
 	public UserOperation(Context c){
 		this.context=c;

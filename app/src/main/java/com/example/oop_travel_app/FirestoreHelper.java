@@ -23,10 +23,13 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class FirestoreHelper {
     public ArrayList<Order> mOrders=new ArrayList();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ArrayList<String> userIDs=new ArrayList();
 
     public FirestoreHelper(){  }
 
-
+    public ArrayList<String> getUserIDs() {
+        return userIDs;
+    }
     public void orderInit() {
         DocumentReference orderIDs = db.collection("orderIDs").document("example");
         Map<String, Object> info = new HashMap<>();
@@ -42,13 +45,16 @@ public class FirestoreHelper {
         info.put("bookedTraveler",-3);
         tripIDs.set(info);
     }
+
+
     public void userInit() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference userIDs = db.collection("userIDs").document("example");
         Map<String, Object> info = new HashMap<>();
-        info.put("password", "password");
-        info.put("userPhone", "0987654321");
-        info.put("orderID", Arrays.asList(-1, -2));
+        info.put("name","輸入姓名");
+        info.put("password","password");
+        info.put("phone","0987654321");
+        info.put("orders",Arrays.asList(-1, -2));
         userIDs.set(info);
     }
 
@@ -109,7 +115,6 @@ public class FirestoreHelper {
         return order;
     }
 
-
     public void initialize(){
         db.collection("orderIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
@@ -125,9 +130,43 @@ public class FirestoreHelper {
                 System.out.println("Loading finish !");
             }
         });
-
+        db.collection("userIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Map<String, Object> info = new HashMap<>();
+                        userIDs.add(document.getId());
+                        Log.d("System.out", document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.d("System.out", "Error getting documents: ", task.getException());
+                }
+                System.out.println("Loading finish !");
+            }
+        });
 
     }
+
+    /**
+     * create a new account or modify the imfomation of account
+     * @param userID
+     * @param name
+     * @param password
+     * @param phone
+     */
+    public void modifyAccount(String userID,String name,String password,int phone,List orders){
+        DocumentReference userIDs = db.collection("userIDs").document(userID);
+        Map<String, Object> info = new HashMap<>();
+        info.put("name",name);
+        info.put("password",password);
+        info.put("phone",phone);
+        info.put("orders",orders);
+        userIDs.set(info);
+    }
+
+
+
 
 }
 

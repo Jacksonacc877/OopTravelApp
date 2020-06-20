@@ -277,29 +277,3 @@ public class DataList {
 	}
 
 }
-//	/**
-//	 * List all the Continent
-//	 * @return  all the Continent
-//	 */
-//	public String[] listContinent() {
-//		String sql = "SELECT DISTINCT Continent FROM travel_code;" ;
-//		dbo.selectData(sql, 1);
-//		resultSize=result.length;
-//		result=dbo.getResultSet();
-//		return result;
-//	}
-//
-//
-//	/**
-//	 * List all the country in certain Continent
-//	 * @param continent is the continent you want to know more
-//	 * @return those country in certain continent
-//	 */
-//	public String[] listContinentCountry(String continent) {
-//		String sql = "SELECT DISTINCT Country FROM travel_code "
-//				+ "WHERE Continent LIKE '%"+continent+"%' ;";
-//		dbo.selectData(sql, 1);
-//		result=dbo.getResultSet();
-//		resultSize=result.length;
-//		return result;
-//	}
