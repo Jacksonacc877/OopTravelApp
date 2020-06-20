@@ -50,11 +50,12 @@
         android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="@string/go_search"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="619dp" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listview_search_result"
@@ -62,16 +63,73 @@
         android:layout_height="300dp"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_region">
 
     </ListView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/ss"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/so"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/order" />
+
+        <ImageButton
+            android:id="@+id/sh"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/sa"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/sd"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.oop_travel_app.search_related;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,24 +21,42 @@ import java.util.Map;
 //import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
+import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 public class SearchHomepage extends AppCompatActivity {
     private ListView listView;
     private Button search_button;
+    private ImageButton ss,so,sh,sa,sd;
     private ArrayList<Map<String,Object>> list;
     private listview_forsearch tld;
-    private String region_input;
-    private String startDate_input;
+    private String region_input,startDate_input;
     private AutoCompleteTextView mutextview;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchhomepage);
         search_button = (Button) findViewById(R.id.search_button);
         search_button.setOnClickListener(search_button_listener);
+
+        ss=(ImageButton)findViewById(R.id.ss);
+        ss.setOnClickListener(ss_listener);
+        so=(ImageButton)findViewById(R.id.so);
+        so.setOnClickListener(so_listener);
+        sh=(ImageButton)findViewById(R.id.sh);
+        sh.setOnClickListener(sh_listener);
+        sa=(ImageButton)findViewById(R.id.sa);
+        sa.setOnClickListener(sa_listener);
+        sd=(ImageButton)findViewById(R.id.sd);
+        sd.setOnClickListener(sd_listener);
+
+        System.out.println("1");
 
         DataList dlt=new DataList(this);
         String[] hintregion=dlt.listCountry();
@@ -57,7 +77,6 @@ public class SearchHomepage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Adapter adapter = adapterView.getAdapter();
                 ListView listView = (ListView) adapterView;
-//////////-----Here to create a new activity which is to show the detail information(use intent to pass the data)------//////
                 Intent intent = new Intent(SearchHomepage.this, Search_Result_SameTitle.class);
                 Bundle bundle_test = new Bundle();
                 String region_name = (String) list.get(position).get("triptitle");
@@ -70,6 +89,42 @@ public class SearchHomepage extends AppCompatActivity {
 
 
     }
+    View.OnClickListener ss_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(SearchHomepage.this,SearchHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener so_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(SearchHomepage.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener sh_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(SearchHomepage.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener sa_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(SearchHomepage.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener sd_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(SearchHomepage.this, DevlopHomepage.class);
+            startActivity(intent);
+        }
+    };
+
 
     View.OnClickListener mutlistener=new View.OnClickListener() {
         @Override
@@ -96,14 +151,18 @@ public class SearchHomepage extends AppCompatActivity {
             } else if (startDate_input.equals("")) {
                 DataList dl = new DataList(SearchHomepage.this);
                 String[] result = dl.searchDestination(region_input);
-                for (int i = 0; i < result.length; i++) {
+                System.out.println("5");
+                //int i = 0; i < result.length; i++
+                for (String s:result) {
                     HashMap<String,Object> item = new HashMap<String,Object>();
-                    String[] str=result[i].split(" , ");
+                    String[] str=s.split(" , ");
+                    //result[i].split
                     item.put("triptitle",str[0]);
                     item.put("priceinterval",str[1]);
                     item.put("dateinterval",str[2]);
                     list.add(item);
                 }
+                System.out.println("6");
                 tld.notifyDataSetChanged();
                 listView.setAdapter(tld);
                 if (list.size() == 0) {
@@ -112,9 +171,9 @@ public class SearchHomepage extends AppCompatActivity {
             } else {
                 DataList dl = new DataList(SearchHomepage.this);
                 String[] result = dl.searchDestination(region_input,startDate_input);
-                for (int i = 0; i < result.length; i++) {
+                for (String s:result) {
                     HashMap<String,Object> item = new HashMap<String,Object>();
-                    String[] str=result[i].split(" , ");
+                    String[] str=s.split(" , ");
                     item.put("triptitle",str[0]);
                     item.put("priceinterval",str[1]);
                     item.put("dateinterval",str[2]);
