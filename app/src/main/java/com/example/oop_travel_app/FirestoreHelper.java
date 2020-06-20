@@ -52,7 +52,7 @@ public class FirestoreHelper {
         userIDs.set(info);
     }
 
-    public void newOrder(Order o,int maxID,int booked){
+    public void newOrder(Order o,int maxID,int booked,List orders){
         DocumentReference orderIDs = db.collection("orderIDs").document(String.valueOf(maxID+1));
         Map<String, Object> info = new HashMap<>();
         info.put("orderID",maxID+1);
@@ -63,10 +63,22 @@ public class FirestoreHelper {
         info.put("numOfChild", o.getNumOfChild());
         info.put("numOfInfant", o.getNumOfInfant());
         orderIDs.set(info);
+        syncTrip(o,booked);
+        syncUser(o,orders);
+    }
+
+    public void syncTrip(Order o,int booked){
         DocumentReference tripIDs = db.collection("tripIDs").document(String.valueOf(o.getTripID()));
-        info = new HashMap<>();
+        Map<String, Object>info = new HashMap<>();
         info.put("bookedTraveler",booked+o.getNumOfChild()+o.getNumOfAdult()+o.getNumOfInfant());
         tripIDs.set(info);
+    }
+
+    public void syncUser(Order o,List orders){
+        DocumentReference userIDs = db.collection("userIDs").document(String.valueOf(o.getUserID()));
+        Map<String, Object>info = new HashMap<>();
+        info.put("bookedTraveler",orders.add(o.getOrderID()));
+        userIDs.set(info);
     }
 
     public void deleteOrder(Integer oID){
