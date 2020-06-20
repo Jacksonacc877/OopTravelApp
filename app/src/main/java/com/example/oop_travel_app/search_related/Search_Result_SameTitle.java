@@ -53,13 +53,12 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         TextView SRListdate = (TextView)findViewById(R.id.trip_region_Userin);
         SRListdate.setText(region_User_input);
 
-<<<<<<< HEAD
+
         fsh=new FirestoreHelper();
         fsh.tripInit();
 
-=======
         String startdate=bundle_test.getString("StartDate");
->>>>>>> ef7a5c14b898eb325835ccbdf463ec561c74d382
+
         Start_date =(EditText)findViewById(R.id.start_date);
         Start_date.setText(startdate);
         String enddate=bundle_test.getString("EndDate");

@@ -180,8 +180,6 @@ public class DataList {
 		return result;
 	}
 
-
-
 	private String getPriceInterval(String title){
 		String sql = "SELECT price FROM trip "
 				+ "WHERE title Like '" + title + "';";
@@ -217,7 +215,7 @@ public class DataList {
 				String[] date=s.split(",");
 				if (count==0) {
 					earliest=sdf.parse(date[0]);
-					latest=earliest=sdf.parse(date[1]);
+					latest=sdf.parse(date[1]);
 				}
 				else{
 					if (earliest.after(sdf.parse(date[0]))) earliest=sdf.parse(date[0]);

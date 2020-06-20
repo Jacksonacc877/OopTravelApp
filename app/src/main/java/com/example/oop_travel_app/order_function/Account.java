@@ -32,6 +32,8 @@ public class Account {
 
 	Account(){}
 
+
+
 	FirestoreHelper fbs = new FirestoreHelper();
 	public boolean register(String ID, String userName, String password, String userPhone){
 		ArrayList<Account> userIDs = fbs.getUserIDs();
@@ -55,6 +57,7 @@ public class Account {
 		}
 		return false;
 	}
+
 	public ArrayList<String> outputData(ArrayList<String> data){
 		return data;
 	}

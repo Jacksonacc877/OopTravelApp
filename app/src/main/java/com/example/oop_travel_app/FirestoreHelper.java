@@ -52,16 +52,6 @@ public class FirestoreHelper {
     }
 
 
-    public void userExample() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference userIDs = db.collection("userIDs").document("example");
-        Map<String, Object> info = new HashMap<>();
-        info.put("name","輸入姓名");
-        info.put("password","password");
-        info.put("phone","0987654321");
-        info.put("orders",Arrays.asList(-1, -2));
-        userIDs.set(info);
-    }
 
     public void newOrder(Order o,int maxID,int booked){
         DocumentReference orderIDs = db.collection("orderIDs").document(String.valueOf(maxID+1));
@@ -100,10 +90,27 @@ public class FirestoreHelper {
                         Log.w(TAG, "Error deleting document", e);
                     }
                 });
-        DocumentReference tripIDs = db.collection("tripIDs").document(String.valueOf(tID));
-        Map<String, Object>info = new HashMap<>();
-        info.put("bookedTraveler",numOfRemain);
-        tripIDs.set(info);
+        if (numOfRemain>0){
+            DocumentReference tripIDs = db.collection("tripIDs").document(String.valueOf(tID));
+            Map<String, Object>info = new HashMap<>();
+            info.put("bookedTraveler",numOfRemain);
+            tripIDs.set(info);
+        }else{
+            db.collection("tripIDs").document(String.valueOf(tID))
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error deleting document", e);
+                        }
+                    });
+        }
     }
 
 
@@ -115,10 +122,10 @@ public class FirestoreHelper {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         mOrders.add(document.toObject(Order.class));
-                        Log.d("System.out", document.getId() + " => " + document.getData());
+                        Log.d("fsh.orderInit", document.getId() + " => " + document.getData());
                     }
                 } else {
-                    Log.d("System.out", "Error getting documents: ", task.getException());
+                    Log.d("fsh.orderInit", "Error getting documents: ", task.getException());
                 }
                 System.out.println("Loading finish !");
             }
@@ -132,10 +139,10 @@ public class FirestoreHelper {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         userIDs.add(document.toObject(Account.class));
-                        Log.d("System.out", document.getId() + " => " + document.getData());
+                        Log.d("fsh.userInit", document.getId() + " => " + document.getData());
                     }
                 } else {
-                    Log.d("System.out", "Error getting documents: ", task.getException());
+                    Log.d("fsh.userInit", "Error getting documents: ", task.getException());
                 }
                 System.out.println("Loading finish !");
             }
@@ -172,6 +179,7 @@ public class FirestoreHelper {
     public void modifyAccount(String userID,String name,String password,String phone){
         DocumentReference userIDs = db.collection("userIDs").document(userID);
         Map<String, Object> info = new HashMap<>();
+        info.put("userID",userID);
         info.put("name",name);
         info.put("password",password);
         info.put("phone",phone);
