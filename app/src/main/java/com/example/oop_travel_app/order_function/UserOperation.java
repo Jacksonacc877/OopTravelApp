@@ -30,7 +30,7 @@ public class UserOperation {
 		dbo = new DBOperation (c);
 		fsh=new FirestoreHelper();
 		fsh.orderInit();
-		fsh.userInit();
+
 	}
 
 	public boolean bookATrip(Order order){

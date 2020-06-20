@@ -28,6 +28,7 @@ public class FirestoreHelper {
     private Map<String, Object> tripIDs=new HashMap<String, Object>();
 
     public FirestoreHelper(){  }
+
     public Map<String, Object> getTripIDs() { return tripIDs; }
     public ArrayList<Account> getUserIDs() {
         return userIDs;
@@ -168,7 +169,8 @@ public class FirestoreHelper {
     public void modifyAccount(String userID,String name,String password,String phone){
         DocumentReference userIDs = db.collection("userIDs").document(userID);
         Map<String, Object> info = new HashMap<>();
-        info.put("name",name);
+        info.put("userID",userID);
+        info.put("userName",name);
         info.put("password",password);
         info.put("phone",phone);
         userIDs.set(info);

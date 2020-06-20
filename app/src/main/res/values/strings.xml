@@ -99,7 +99,8 @@
     <string name="arrangepage_button">訂單管理</string>
 
 
-    <!-- 帳號畫面 -->
+    <!-- 帳號主畫面 -->
+    <string name="ah_title">請登入使用其餘功能</string>
     <string name="account">帳號</string>
     <string name="password">密碼</string>
     <string name="account_login">登入</string>
@@ -111,5 +112,11 @@
     <string name="regis_password">密碼</string>
     <string name="regis_repassword">確認密碼</string>
     <string name="regis_phone">電話</string>
+
+    <!-- 帳號登入畫面 -->
+    <string name="ai_bt">修改帳戶資訊</string>
+    <string name="ai_account">帳號 ：</string>
+    <string name="ai_name">姓名 ：</string>
+    <string name="ai_phoness">電話 ：</string>
 
 </resources>

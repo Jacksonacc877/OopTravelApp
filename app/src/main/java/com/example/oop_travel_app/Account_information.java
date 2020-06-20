@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.oop_travel_app.order_function.Account;
 import com.example.oop_travel_app.order_related.ArrangeHomepage;
 import com.example.oop_travel_app.search_related.SearchHomepage;
 
@@ -16,17 +17,21 @@ public class Account_information extends AppCompatActivity {
     private TextView ainfo_account,ainfo_name,ainfo_phonesss;
     private Button ainfo_bt;
     private ImageButton ais,aio,aih,aia,aid;
+    private Account acc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_information);
+        acc =new Account("");
 
 
         ainfo_account=(TextView)findViewById(R.id.ainfo_account);
+        ainfo_account.setText(acc.getUserID());
         ainfo_name=(TextView)findViewById(R.id.ainfo_name);
+        ainfo_name.setText(acc.getUserName());
         ainfo_phonesss=(TextView)findViewById(R.id.ainfo_phonesss);
-
+        ainfo_phonesss.setText(acc.getUserPhone());
         ainfo_bt=(Button)findViewById(R.id.ainfo_bt);
         ainfo_bt.setOnClickListener(ainfo_bt_listener);
 
@@ -40,7 +45,6 @@ public class Account_information extends AppCompatActivity {
         aia.setOnClickListener(aia_listener);
         aid=(ImageButton)findViewById(R.id.aid);
         aid.setOnClickListener(aid_listener);
-
     }
 
     View.OnClickListener ainfo_bt_listener =new View.OnClickListener() {
