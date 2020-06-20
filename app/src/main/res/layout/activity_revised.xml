@@ -157,14 +157,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inrevisd_priceafter" />
 
-    <Button
-        android:id="@+id/home"
-        android:layout_width="52dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/backtohome"
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/rs"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/ro"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/order" />
+
+        <ImageButton
+            android:id="@+id/rh"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/ra"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/rd"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

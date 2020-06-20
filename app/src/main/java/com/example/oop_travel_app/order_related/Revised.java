@@ -2,35 +2,32 @@ package com.example.oop_travel_app.order_related;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_function.Order;
 import com.example.oop_travel_app.order_function.UserOperation;
+import com.example.oop_travel_app.search_related.SearchHomepage;
 
 public class Revised extends AppCompatActivity {
-    private TextView inrevisd_user;
-    private TextView inrevised_phone;
-    private TextView adultnum;
-    private TextView childnum;
-    private TextView infantnum;
-    private TextView price_before;
-    private TextView price_after;
-    private Spinner adultspinner;
-    private Spinner childspinner;
-    private Spinner infantspinner;
-    private int price;
-    private int numOfadult=0;
-    private int numOfchild=0;
-    private int numOfinfant=0;
-    private int orderid;
+    private TextView inrevisd_user,inrevised_phone,adultnum,childnum,infantnum;
+    private TextView price_before,price_after;
+    private Spinner adultspinner,childspinner,infantspinner;
+    private int price,numOfadult=0,numOfchild=0,numOfinfant=0,orderid;
+    private ImageButton rs,ro,rh,ra,rd;
     Order oldOne =new Order();
 
     @Override
@@ -84,6 +81,18 @@ public class Revised extends AppCompatActivity {
         infantspinner=(Spinner)findViewById(R.id.inrevised_infantspinner);
         infantspinner.setAdapter(numberadapter);
         infantspinner.setOnItemSelectedListener(infantlistener);
+
+        rs=(ImageButton)findViewById(R.id.rs);
+        rs.setOnClickListener(rs_listener);
+        ro=(ImageButton)findViewById(R.id.ro);
+        ro.setOnClickListener(ro_listener);
+        rh=(ImageButton)findViewById(R.id.rh);
+        rh.setOnClickListener(rh_listener);
+        ra=(ImageButton)findViewById(R.id.ra);
+        ra.setOnClickListener(ra_listener);
+        rd=(ImageButton)findViewById(R.id.rd);
+        rd.setOnClickListener(rd_listener);
+
     }
     View.OnClickListener inrevised_button_listener =new View.OnClickListener() {
         @Override
@@ -134,4 +143,40 @@ public class Revised extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parent) {
         }
     };
+    View.OnClickListener rs_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Revised.this, SearchHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener ro_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Revised.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener rh_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Revised.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener ra_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Revised.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener rd_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Revised.this, DevlopHomepage.class);
+            startActivity(intent);
+        }
+    };
+
 }

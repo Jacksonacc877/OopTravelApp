@@ -171,11 +171,59 @@
         app:layout_constraintStart_toEndOf="@+id/gorevised_button"
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="558dp" />
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/os"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/oo"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/order" />
+
+        <ImageButton
+            android:id="@+id/oh"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/oa"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/od"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,44 +5,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_function.UserOperation;
+import com.example.oop_travel_app.search_related.SearchHomepage;
 
 
 public class OrderDetailwithDelete extends AppCompatActivity {
     private int orderid;
-    private String userid;
-    private String info;
+    private String userid,info;
+    private ImageButton os,oo,oh,oa,od;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //uo=new UserOperation(this);
         ArrangeHomepage ah=new ArrangeHomepage();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderdetail);
-        System.out.println("test message 0");
         Bundle bundle=this.getIntent().getExtras();
-        System.out.println("test message 1");
         orderid=Integer.valueOf(bundle.getString("orderid"));
-        System.out.println("asd"+orderid+"dfsdf");
-        System.out.println("test message 3");
         info=bundle.getString("info");
         String[] str=bundle.getString("info").split(",");
-        System.out.println("test message 4");
 
 
         Button gorevised =(Button)findViewById(R.id.gorevised_button);
         gorevised.setOnClickListener(gorevisedlistener);
         Button godelete =(Button)findViewById(R.id.godelete_button);
         godelete.setOnClickListener(godeletelistener);
-        System.out.println("test message 5");
 
         TextView tripname=(TextView)findViewById(R.id.tripname);
         tripname.setText(str[7]);
@@ -56,7 +55,17 @@ public class OrderDetailwithDelete extends AppCompatActivity {
         passengerinfo.setText(str[11]);
         TextView price=(TextView)findViewById(R.id.price);
         price.setText(str[8]);
-        System.out.println("test message 6");
+
+        os=(ImageButton)findViewById(R.id.os);
+        os.setOnClickListener(os_listener);
+        oo=(ImageButton)findViewById(R.id.oo);
+        oo.setOnClickListener(oo_listener);
+        oh=(ImageButton)findViewById(R.id.oh);
+        oh.setOnClickListener(oh_listener);
+        oa=(ImageButton)findViewById(R.id.oa);
+        oa.setOnClickListener(oa_listener);
+        od=(ImageButton)findViewById(R.id.od);
+        od.setOnClickListener(od_listener);
     }
 
     View.OnClickListener gorevisedlistener =new View.OnClickListener() {
@@ -89,4 +98,40 @@ public class OrderDetailwithDelete extends AppCompatActivity {
             builder.show();
         }
     };
+    View.OnClickListener os_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(OrderDetailwithDelete.this, SearchHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener oo_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(OrderDetailwithDelete.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener oh_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(OrderDetailwithDelete.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener oa_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(OrderDetailwithDelete.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener od_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(OrderDetailwithDelete.this, DevlopHomepage.class);
+            startActivity(intent);
+        }
+    };
+
 }
