@@ -99,7 +99,7 @@ public class Revised extends AppCompatActivity {
         public void onClick(View v) {
             UserOperation Uo=new UserOperation(Revised.this);
             Uo.updateTheTrip(oldOne,numOfadult,numOfchild,numOfinfant);
-            Toast.makeText(Revised.this,"修改成功,已取消您的預訂紀錄",Toast.LENGTH_LONG).show();
+            Toast.makeText(Revised.this,"修改成功",Toast.LENGTH_LONG).show();
         }
     };
 

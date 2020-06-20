@@ -49,14 +49,22 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         setContentView(R.layout.activity_search__resultsametitle);
         Bundle bundle_test=this.getIntent().getExtras();
         region_User_input = bundle_test.getString("RegionNumber_UserIn");
+
         TextView SRListdate = (TextView)findViewById(R.id.trip_region_Userin);
         SRListdate.setText(region_User_input);
 
+<<<<<<< HEAD
         fsh=new FirestoreHelper();
         fsh.tripInit();
 
+=======
+        String startdate=bundle_test.getString("StartDate");
+>>>>>>> ef7a5c14b898eb325835ccbdf463ec561c74d382
         Start_date =(EditText)findViewById(R.id.start_date);
+        Start_date.setText(startdate);
+        String enddate=bundle_test.getString("EndDate");
         End_date =(EditText)findViewById(R.id.end_date);
+        End_date.setText(enddate);
 
         searchButton = (Button)findViewById(R.id.gosearch_date);
         searchButton.setOnClickListener(searchButtonListener);

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.DevlopHomepage;
@@ -18,11 +19,18 @@ import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Trip_DetailwithBooking extends AppCompatActivity {
     private Button goArrange;
     private ImageButton tds,tdo,tdh,tda,tdd;
     protected String id, title,price,startday,endday;
+<<<<<<< HEAD
+    private boolean okdate=true;
+=======
 
+>>>>>>> 6d10e56f3b052a21e1b99dee05ac1c588256faeb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,20 +80,44 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         tda.setOnClickListener(tda_listener);
         tdd=(ImageButton)findViewById(R.id.tdd);
         tdd.setOnClickListener(tdd_listener);
+
+
+
+
     }
 
     View.OnClickListener goArrangeListener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(Trip_DetailwithBooking.this, Booking.class);
-            Bundle bundle = new Bundle();
-            bundle.putString("ID",id );
-            bundle.putString("Title",title);
-            bundle.putString("Price",price);
-            bundle.putString("StartDate",startday);
-            bundle.putString("EndDate",endday);
-            intent.putExtras(bundle);
-            startActivity(intent);
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+            Date curdate=new Date(System.currentTimeMillis());
+            String currentdate=sdf.format(curdate);
+
+            String[] splitcurdate=currentdate.split("-");
+            int curyear=Integer.valueOf(splitcurdate[0]);
+            int curmonth=Integer.valueOf(splitcurdate[1]);
+            int curday=Integer.valueOf(splitcurdate[2]);
+            String[] splitstartdate=startday.split("-");
+            int staryear=Integer.valueOf(splitstartdate[0]);
+            int starmonth=Integer.valueOf(splitstartdate[1]);
+            int starday=Integer.valueOf(splitstartdate[2]);
+            if(curyear>staryear || curmonth>starmonth ||curday>starday){
+                okdate=false;
+            }
+            if(okdate){
+                Intent intent = new Intent(Trip_DetailwithBooking.this, Booking.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ID",id );
+                bundle.putString("Title",title);
+                bundle.putString("Price",price);
+                bundle.putString("StartDate",startday);
+                bundle.putString("EndDate",endday);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }else{
+                Toast.makeText(Trip_DetailwithBooking.this,"Exceed start date!",Toast.LENGTH_LONG).show();
+            }
+
         }
     };
     View.OnClickListener tds_listener =new View.OnClickListener() {
