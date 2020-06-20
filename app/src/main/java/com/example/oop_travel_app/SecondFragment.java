@@ -42,5 +42,13 @@ public class SecondFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        view.findViewById(R.id.go_account).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(), AccountHomepage.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
