@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".Account_register">
 
     <TextView
@@ -136,4 +137,59 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_repassword" />
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/ars"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/aro"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/order" />
+
+        <ImageButton
+            android:id="@+id/arh"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/ara"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/ard"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/home" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
