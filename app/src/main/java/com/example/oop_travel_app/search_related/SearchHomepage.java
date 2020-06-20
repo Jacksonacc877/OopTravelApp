@@ -1,8 +1,6 @@
 package com.example.oop_travel_app.search_related;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,13 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-//import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.DevlopHomepage;
 import com.example.oop_travel_app.MainActivity;
@@ -37,7 +32,6 @@ public class SearchHomepage extends AppCompatActivity {
     private String region_input,startDate_input;
     private AutoCompleteTextView mutextview;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +49,6 @@ public class SearchHomepage extends AppCompatActivity {
         sa.setOnClickListener(sa_listener);
         sd=(ImageButton)findViewById(R.id.sd);
         sd.setOnClickListener(sd_listener);
-
-        System.out.println("1");
 
         DataList dlt=new DataList(this);
         String[] hintregion=dlt.listCountry();
@@ -137,7 +129,7 @@ public class SearchHomepage extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             int listsize = list.size();
-            for (int i = 0; i < listsize; i++) {
+            for ( int i=0;i<listsize;i++) {
                 list.remove(0);
             }
             region_input = "";
@@ -151,18 +143,14 @@ public class SearchHomepage extends AppCompatActivity {
             } else if (startDate_input.equals("")) {
                 DataList dl = new DataList(SearchHomepage.this);
                 String[] result = dl.searchDestination(region_input);
-                System.out.println("5");
-                //int i = 0; i < result.length; i++
                 for (String s:result) {
                     HashMap<String,Object> item = new HashMap<String,Object>();
                     String[] str=s.split(" , ");
-                    //result[i].split
                     item.put("triptitle",str[0]);
                     item.put("priceinterval",str[1]);
                     item.put("dateinterval",str[2]);
                     list.add(item);
                 }
-                System.out.println("6");
                 tld.notifyDataSetChanged();
                 listView.setAdapter(tld);
                 if (list.size() == 0) {

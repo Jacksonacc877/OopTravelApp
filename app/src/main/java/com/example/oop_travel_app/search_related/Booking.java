@@ -11,36 +11,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
 import com.example.oop_travel_app.FirestoreHelper;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.order_function.Order;
 import com.example.oop_travel_app.order_function.OrderCmdException;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.SecondFragment;
 import com.example.oop_travel_app.order_function.UserOperation;
+import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 public class Booking extends AppCompatActivity {
-    private Spinner adultspinner;
-    private Spinner childspinner;
-    private Spinner infantspinner;
-    private TextView tv_id;
-    private TextView tv_title;
-    private TextView tv_price;
-    private TextView tv_date;
-    private EditText ed_username;
-    private EditText ed_phone;
-    private String id;
-    private String Title;
-    private String startdate;
-    private String enddate;
-    private int price;
-    private int numOfadult=0;
-    private int numOfchild=0;
-    private int numOfinfant=0;
+    private Spinner adultspinner,childspinner,infantspinner;
+    private TextView tv_id,tv_title,tv_price,tv_date;
+    private EditText ed_username,ed_phone;
+    private String id,Title,startdate,enddate;
+    private int price,numOfadult=0,numOfchild=0,numOfinfant=0;
+    private ImageButton bs,bo,bh,ba,bd;
     private UserOperation uo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +76,17 @@ public class Booking extends AppCompatActivity {
 
         Button arrange_button=(Button) findViewById(R.id.arrange_button);
         arrange_button.setOnClickListener(arrange_button_listener);
-        Button backtoHome=(Button)findViewById(R.id.backtoHome);
-        backtoHome.setOnClickListener(homelistener);
 
+        bs=(ImageButton)findViewById(R.id.bs);
+        bs.setOnClickListener(bs_listener);
+        bo=(ImageButton)findViewById(R.id.bo);
+        bo.setOnClickListener(bo_listener);
+        bh=(ImageButton)findViewById(R.id.bh);
+        bh.setOnClickListener(bh_listener);
+        ba=(ImageButton)findViewById(R.id.ba);
+        ba.setOnClickListener(ba_listener);
+        bd=(ImageButton)findViewById(R.id.bd);
+        bd.setOnClickListener(bd_listener);
 
 
     }
@@ -162,10 +165,38 @@ public class Booking extends AppCompatActivity {
             builder.show();
         }
     };
-    View.OnClickListener homelistener=new View.OnClickListener() {
+  View.OnClickListener bs_listener=new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          Intent intent=new Intent(Booking.this,SearchHomepage.class);
+          startActivity(intent);
+      }
+  };
+    View.OnClickListener bo_listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent =new Intent(Booking.this, SecondFragment.class);
+            Intent intent=new Intent(Booking.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener bh_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Booking.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener ba_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Booking.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener bd_listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(Booking.this, DevlopHomepage.class);
             startActivity(intent);
         }
     };

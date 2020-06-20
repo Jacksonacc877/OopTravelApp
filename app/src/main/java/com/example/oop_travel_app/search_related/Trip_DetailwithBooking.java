@@ -3,21 +3,24 @@ package com.example.oop_travel_app.search_related;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
+import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 public class Trip_DetailwithBooking extends AppCompatActivity {
     private Button goArrange;
-    protected String id;
-    protected String title;
-    protected String price;
-    protected String startday;
-    protected String endday;
+    private ImageButton tds,tdo,tdh,tda,tdd;
+    protected String id, title,price,startday,endday;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +31,8 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         int region_number=Integer.parseInt(s);
         DataList dl=new DataList(Trip_DetailwithBooking.this);
         String[]  info= dl.getTripData(region_number);
-        String Id=info[0];
-        id=Id;
-        String TripName=info[1];
-        title=TripName;
+        id=info[0];
+        title=info[1];
         String Price=info[2];
         String[] rePrice =Price.split("//s");
         price=rePrice[0];
@@ -41,9 +42,9 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         String Place=info[6];
 
         TextView ID = (TextView)findViewById(R.id.search_result_id);
-        ID.setText("ID : "+Id);
+        ID.setText("ID : "+id);
         TextView tripname = (TextView)findViewById(R.id.search_result_tripname);
-        tripname.setText("行程名稱 : "+TripName);
+        tripname.setText("行程名稱 : "+title);
         TextView price = (TextView)findViewById(R.id.search_result_price);
         price.setText("價錢 : "+Price);
         TextView startdate = (TextView)findViewById(R.id.search_result_startdate);
@@ -56,6 +57,17 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         placess.setText("旅遊團空位 : "+Place);
         goArrange =(Button)findViewById(R.id.gobooking);
         goArrange.setOnClickListener(goArrangeListener);
+
+        tds=(ImageButton)findViewById(R.id.tds);
+        tds.setOnClickListener(tds_listener);
+        tdo=(ImageButton)findViewById(R.id.tdo);
+        tdo.setOnClickListener(tdo_listener);
+        tdh=(ImageButton)findViewById(R.id.tdh);
+        tdh.setOnClickListener(tdh_listener);
+        tda=(ImageButton)findViewById(R.id.tda);
+        tda.setOnClickListener(tda_listener);
+        tdd=(ImageButton)findViewById(R.id.tdd);
+        tdd.setOnClickListener(tdd_listener);
     }
 
     View.OnClickListener goArrangeListener=new View.OnClickListener() {
@@ -72,4 +84,40 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
             startActivity(intent);
         }
     };
+    View.OnClickListener tds_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Trip_DetailwithBooking.this,SearchHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener tdo_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Trip_DetailwithBooking.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener tdh_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Trip_DetailwithBooking.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener tda_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Trip_DetailwithBooking.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener tdd_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Trip_DetailwithBooking.this, DevlopHomepage.class);
+            startActivity(intent);
+        }
+    };
+
 }

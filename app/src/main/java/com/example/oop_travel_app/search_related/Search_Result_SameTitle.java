@@ -12,13 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
+import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,14 +31,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Search_Result_SameTitle extends AppCompatActivity {
-    private String region_User_input;
-    private String start_dates;
-    private String end_dates;
-    private EditText Start_date;
-    private EditText End_date;
-    private Button searchButton;
-    private Button strdateButton;
-    private Button enddateButton;
+    private String region_User_input,start_dates,end_dates;
+    private EditText Start_date,End_date;
+    private Button searchButton,strdateButton,enddateButton;
+    private ImageButton srs,sro,srh,sra,srd;
     private ListView listView;
     private ArrayList<Map<String,Object>> list;
     private listview_forsametitle tld;
@@ -46,7 +47,6 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         setContentView(R.layout.activity_search__resultsametitle);
         Bundle bundle_test=this.getIntent().getExtras();
         region_User_input = bundle_test.getString("RegionNumber_UserIn");
-        System.out.println(region_User_input+"000");
         TextView SRListdate = (TextView)findViewById(R.id.trip_region_Userin);
         SRListdate.setText(region_User_input);
 
@@ -59,6 +59,19 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         strdateButton.setOnClickListener(strdateListener);
         enddateButton = (Button)findViewById(R.id.endDateButton);
         enddateButton.setOnClickListener(enddateListener);
+
+        srs=(ImageButton)findViewById(R.id.srs);
+        srs.setOnClickListener(srs_listener);
+        sro=(ImageButton)findViewById(R.id.sro);
+        sro.setOnClickListener(sro_listener);
+        srh=(ImageButton)findViewById(R.id.srh);
+        srh.setOnClickListener(srh_listener);
+        sra=(ImageButton)findViewById(R.id.sra);
+        sra.setOnClickListener(sra_listener);
+        srd=(ImageButton)findViewById(R.id.srd);
+        srd.setOnClickListener(srd_listener);
+
+
 
         final String[] choice={"依價錢排列","依日期排列"};
         ArrayAdapter<String> permuteadpater =new ArrayAdapter<>(Search_Result_SameTitle.this,android.R.layout.simple_spinner_dropdown_item,choice);
@@ -77,7 +90,6 @@ public class Search_Result_SameTitle extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Adapter adapter = parent.getAdapter();
                 ListView listView = (ListView) parent;
-//////////-----Here to create a new activity which is to show the detail information(use intent to pass the data)------//////
                 Intent intent = new Intent(Search_Result_SameTitle.this, Trip_DetailwithBooking.class);
                 Bundle bundle_test = new Bundle();
                 String ID =(String) list.get(position).get("ID");
@@ -171,7 +183,6 @@ public class Search_Result_SameTitle extends AppCompatActivity {
             }else{
                 DataList dl =new DataList(Search_Result_SameTitle.this);
                 String[] resultTest =dl.listTitleData(region_User_input,start_dates,end_dates,permutation);
-                System.out.println(1);
                 for(int i=0;i<resultTest.length;i++){
                     HashMap<String,Object> item = new HashMap<String,Object>();
                     String[] getinfo =resultTest[i].split(",");
@@ -180,9 +191,7 @@ public class Search_Result_SameTitle extends AppCompatActivity {
                     item.put("StartDate",getinfo[2]);
                     item.put("EndDate",getinfo[3]);
                     list.add(item);
-                    System.out.println(i);
                 }
-                System.out.println(2);
                 tld.notifyDataSetChanged();
                 listView.setAdapter(tld);
                 if(list.size()==0){
@@ -191,5 +200,41 @@ public class Search_Result_SameTitle extends AppCompatActivity {
                 }
             }
         };
+    View.OnClickListener srs_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Search_Result_SameTitle.this,SearchHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener sro_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Search_Result_SameTitle.this, ArrangeHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener srh_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Search_Result_SameTitle.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener sra_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Search_Result_SameTitle.this, AccountHomepage.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener srd_listener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent =new Intent(Search_Result_SameTitle.this, DevlopHomepage.class);
+            startActivity(intent);
+        }
+    };
+
     }
 
