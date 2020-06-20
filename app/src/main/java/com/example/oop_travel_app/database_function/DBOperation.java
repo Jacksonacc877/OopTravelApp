@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.order_function.Order;
 
 
@@ -21,9 +22,10 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class DBOperation{
-    private final Object flag = new Object();
     private DatabaseHelper mDBHelper=null;
     private SQLiteDatabase mDb;
+
+
 
 
     ArrayList<String> output =new ArrayList<String>();
@@ -35,6 +37,7 @@ public class DBOperation{
      */
     public DBOperation (Context c) {
         mDBHelper = new DatabaseHelper(c);
+
         try {
             mDBHelper.updateDataBase();
         } catch (IOException mIOException) {
@@ -46,19 +49,6 @@ public class DBOperation{
             throw mSQLException;
         }
     }
-
-    /**
-     * According to input instruction to execute certain action
-     * @param sql is the action execute at database.
-     */
-    public void changeData(String sql) {
-        try {
-            mDb.execSQL(sql);
-        } catch (Exception e) {
-            System.out.println("changeData ERROR : "+e);
-        }
-    }
-
 
     /**
      * After selection , output the selection result
@@ -105,38 +95,5 @@ public class DBOperation{
             System.out.println(e);
         }
     }
-
-
-    /**
-     * initialize the order table.
-     */
-    public void createOrderTable() {
-        try {
-            String sql = "CREATE TABLE IF NOT EXISTS OrderData"
-                    + "(orderID		INT		PRIMARY KEY,"
-                    + " userID		TEXT	NOT NULL,"
-                    + " tripID      INT    	NOT NULL,"
-                    + " numOfAdult  INT    	NOT NULL,"
-                    + " numOfChild  INT		NOT NULL,"
-                    + " numOfInfant INT		NOT NULL)";
-            mDb.execSQL(sql);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    /**
-     * According to input instruction to execute certain action
-     * @param sql is the action execute at database.
-     */
-    public void changeDatabase(String sql) {
-        try {
-            mDb.execSQL(sql);
-        } catch (Exception e) {
-            System.out.println("ChangeDatabase ERROR : "+e);
-        }
-    }
-
-
-
 
 }
