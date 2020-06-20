@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.oop_travel_app.database_function.DBOperation;
 
+import com.example.oop_travel_app.order_function.Account;
 import com.example.oop_travel_app.order_function.Order;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,11 +24,11 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class FirestoreHelper {
     public ArrayList<Order> mOrders=new ArrayList();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayList<String> userIDs=new ArrayList();
+    private ArrayList<Account> userIDs=new ArrayList();
 
     public FirestoreHelper(){  }
 
-    public ArrayList<String> getUserIDs() {
+    public ArrayList<Account> getUserIDs() {
         return userIDs;
     }
     public void orderInit() {
@@ -130,13 +131,14 @@ public class FirestoreHelper {
                 System.out.println("Loading finish !");
             }
         });
+    }
+    public void initialize2(){
         db.collection("userIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Map<String, Object> info = new HashMap<>();
-                        userIDs.add(document.getId());
+                        userIDs.add(document.toObject(Account.class));
                         Log.d("System.out", document.getId() + " => " + document.getData());
                     }
                 } else {
@@ -145,9 +147,7 @@ public class FirestoreHelper {
                 System.out.println("Loading finish !");
             }
         });
-
     }
-
     /**
      * create a new account or modify the imfomation of account
      * @param userID
@@ -155,13 +155,12 @@ public class FirestoreHelper {
      * @param password
      * @param phone
      */
-    public void modifyAccount(String userID,String name,String password,int phone,List orders){
+    public void modifyAccount(String userID,String name,String password,String phone){
         DocumentReference userIDs = db.collection("userIDs").document(userID);
         Map<String, Object> info = new HashMap<>();
         info.put("name",name);
         info.put("password",password);
         info.put("phone",phone);
-        info.put("orders",orders);
         userIDs.set(info);
     }
 

@@ -2,11 +2,13 @@ package com.example.oop_travel_app.order_function;
 
 import android.content.Context;
 
+import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.database_function.DBOperation;
 
 import java.util.ArrayList;
 
 public class Account {
+
 
 	public String getID() {
 		return ID;
@@ -28,42 +30,53 @@ public class Account {
 	}
 	private String userPhone;
 
-	FireStoreHelper fbs = new FireStoreHelper();
-	public boolean register(String ID, String userName, String password, String userPhone){
-		ArrayList<String> userIDs = fbs.getUserIDs();
-		for(String str:userIDs){
-			if(str.contentEquals(ID)){
+	Account(){}
 
+	FirestoreHelper fbs = new FirestoreHelper();
+	public boolean register(String ID, String userName, String password, String userPhone){
+		ArrayList<Account> userIDs = fbs.getUserIDs();
+		Account order=new Account();
+		for(Account a:userIDs){
+			if((a.getID()).equals(ID)){
+				order = a;
+				fbs.modifyAccount(order.ID, order.userName, order.password, order.userPhone);
 				return true;
 			}
-			else{
-				return false;
-			}
 		}
+		return false;
 	}
 	public boolean login(String ID, String password) {
-		ArrayList<String> data = fbs.getData();
-		for (String str : data) {
-			if (str.contentEquals(account)) {
-
-
-				if (str.contentEquals(password)) {
-
-					return true;
-				}
-				else {
-					return false;
-				}
+		ArrayList<Account> userIDs = fbs.getUserIDs();
+		Account order=new Account();
+		for(Account a:userIDs){
+			if (a.equals(ID)&&a.equals(password)) {
+				return true;
 			}
 		}
+		return false;
 	}
 	public ArrayList<String> outputData(ArrayList<String> data){
 		return data;
 	}
-	public String revise(String userName, String password, String checkedpassword, String userPhone){
-		if(!userName.equals(null))
-
-		return null;
+	public boolean revise(String userName, String password, String checkedpassword, String userPhone){
+		ArrayList<Account> userIDs = fbs.getUserIDs();
+		Account order=new Account();
+		for(Account a:userIDs){
+			if(!password.equals(null)&&!checkedpassword.equals(null)&&password!=checkedpassword) {
+				return false;
+			}
+			else if(userName.equals(null)) {
+				userName = a.getUserName();
+			}
+			else if(password.equals(null)) {
+				password = a.getPassword();
+			}
+			else if(userPhone.equals(null)) {
+				userPhone = a.getUserPhone();
+			}
+			fbs.modifyAccount(order.ID, order.userName, order.password, order.userPhone);
+		}
+		return true;
 	}
 
 }
