@@ -57,10 +57,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="39dp"
         android:text="@string/regis_repassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_et_password" />
+        tools:layout_editor_absoluteY="411dp" />
 
     <EditText
         android:id="@+id/regis_et_account"
@@ -105,12 +104,11 @@
         android:id="@+id/regis_et_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="textPassword"
         app:layout_constraintStart_toEndOf="@+id/regis_password"
         app:layout_constraintTop_toBottomOf="@+id/regis_etphone" />
 
@@ -118,12 +116,11 @@
         android:id="@+id/regis_et_repassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="22dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="textPassword"
         app:layout_constraintStart_toEndOf="@+id/regis_repassword"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_password" />
 
@@ -131,7 +128,7 @@
         android:id="@+id/regis_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="68dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

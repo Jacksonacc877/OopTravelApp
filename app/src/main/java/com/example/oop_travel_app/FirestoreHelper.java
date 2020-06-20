@@ -27,10 +27,15 @@ public class FirestoreHelper {
     private ArrayList<Account> userIDs;
     private Map<String, Object> tripIDs;
 
+<<<<<<< HEAD
+    public FirestoreHelper(){  }
+
+=======
     public FirestoreHelper(){
         userIDs=new ArrayList();
         tripIDs=new HashMap<String, Object>();
     }
+>>>>>>> dc0fccf50c5cfdc0a973b83d8c9caa700c96b917
     public Map<String, Object> getTripIDs() { return tripIDs; }
     public ArrayList<Account> getUserIDs() {
         return userIDs;
@@ -181,6 +186,7 @@ public class FirestoreHelper {
         Map<String, Object> info = new HashMap<>();
         info.put("userID",userID);
         info.put("name",name);
+        info.put("userName",name);
         info.put("password",password);
         info.put("phone",phone);
         userIDs.set(info);
