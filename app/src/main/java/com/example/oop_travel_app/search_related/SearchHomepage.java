@@ -15,6 +15,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.DevlopHomepage;
@@ -28,9 +30,14 @@ public class SearchHomepage extends AppCompatActivity {
     private Button search_button;
     private ImageButton ss,so,sh,sa,sd;
     private ArrayList<Map<String,Object>> list;
+    ArrayAdapter<String> hintadapter2;
     private listview_forsearch tld;
-    private String region_input,startDate_input;
+    private String region_input;
     private AutoCompleteTextView mutextview;
+    private Spinner regionlist;
+    private EditText search_region;
+    private int checkoncreate=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,9 @@ public class SearchHomepage extends AppCompatActivity {
         setContentView(R.layout.activity_searchhomepage);
         search_button = (Button) findViewById(R.id.search_button);
         search_button.setOnClickListener(search_button_listener);
+
+
+        search_region=(EditText)findViewById(R.id.search_region);
 
         ss=(ImageButton)findViewById(R.id.ss);
         ss.setOnClickListener(ss_listener);
@@ -52,10 +62,11 @@ public class SearchHomepage extends AppCompatActivity {
 
         DataList dlt=new DataList(this);
         String[] hintregion=dlt.listCountry();
-        ArrayAdapter<String> hintadapter=new ArrayAdapter<String>(this,android.R.layout.select_dialog_item,hintregion);
+        ArrayAdapter<String> hintadapter1=new ArrayAdapter<String>(this,android.R.layout.select_dialog_item,hintregion);
+        hintadapter2 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,hintregion);
         mutextview=(AutoCompleteTextView)findViewById(R.id.search_region);
         mutextview.setThreshold(1);
-        mutextview.setAdapter(hintadapter);
+        mutextview.setAdapter(hintadapter1);
         mutextview.setOnClickListener(mutlistener);
 
 
@@ -72,12 +83,28 @@ public class SearchHomepage extends AppCompatActivity {
                 Intent intent = new Intent(SearchHomepage.this, Search_Result_SameTitle.class);
                 Bundle bundle_test = new Bundle();
                 String region_name = (String) list.get(position).get("triptitle");
+                String  dateinterval=(String)list.get(position).get("dateinterval");
+                String startdate,enddate;
+                String[] splitdateinteraval=dateinterval.split("~");
+                if(splitdateinteraval.length>1){
+                    startdate=splitdateinteraval[0];
+                    enddate=splitdateinteraval[1];
+                }else{
+                    startdate=splitdateinteraval[0];
+                    enddate=splitdateinteraval[0];
+                }
                 bundle_test.putString("RegionNumber_UserIn", region_name);
+                bundle_test.putString("StartDate",startdate);
+                bundle_test.putString("EndDate",enddate);
                 intent.putExtras(bundle_test);
                 startActivity(intent);
 
             }
         });
+
+        regionlist=(Spinner)findViewById(R.id.region_list);
+        regionlist.setAdapter(hintadapter2);
+        regionlist.setOnItemSelectedListener(regionlist_listener);
 
 
     }
@@ -117,6 +144,21 @@ public class SearchHomepage extends AppCompatActivity {
         }
     };
 
+    AdapterView.OnItemSelectedListener regionlist_listener =new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            if(checkoncreate==0 ){
+                checkoncreate++;
+            }else{
+                String str=hintadapter2.getItem(position);
+                search_region.setText(str);
+            }
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
 
     View.OnClickListener mutlistener=new View.OnClickListener() {
         @Override
@@ -133,32 +175,13 @@ public class SearchHomepage extends AppCompatActivity {
                 list.remove(0);
             }
             region_input = "";
-            startDate_input = "";
             region_input =mutextview.getText().toString();
-            EditText et2 = (EditText) findViewById(R.id.search_startDate);
-            startDate_input = et2.getText().toString();
 
             if (region_input.equals("")) {
                 Toast.makeText(SearchHomepage.this, "Please input region !", Toast.LENGTH_SHORT);
-            } else if (startDate_input.equals("")) {
-                DataList dl = new DataList(SearchHomepage.this);
-                String[] result = dl.searchDestination(region_input);
-                for (String s:result) {
-                    HashMap<String,Object> item = new HashMap<String,Object>();
-                    String[] str=s.split(" , ");
-                    item.put("triptitle",str[0]);
-                    item.put("priceinterval",str[1]);
-                    item.put("dateinterval",str[2]);
-                    list.add(item);
-                }
-                tld.notifyDataSetChanged();
-                listView.setAdapter(tld);
-                if (list.size() == 0) {
-                    Toast.makeText(SearchHomepage.this, "No data !", Toast.LENGTH_SHORT).show();
-                }
             } else {
                 DataList dl = new DataList(SearchHomepage.this);
-                String[] result = dl.searchDestination(region_input,startDate_input);
+                String[] result = dl.searchDestination(region_input);
                 for (String s:result) {
                     HashMap<String,Object> item = new HashMap<String,Object>();
                     String[] str=s.split(" , ");

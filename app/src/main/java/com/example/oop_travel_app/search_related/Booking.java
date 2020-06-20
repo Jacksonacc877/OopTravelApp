@@ -148,11 +148,9 @@ public class Booking extends AppCompatActivity {
                     }else if(checknum==0){
                         Toast.makeText(Booking.this,"請選擇人數",Toast.LENGTH_SHORT).show();
                     }else{
-//                        UserOperation Uo=new UserOperation(Booking.this);
-//                        int orderid=Uo.getLastID();
-                        System.out.println("test message 001");
+
                         Boolean od=uo.bookATrip(new Order(Booking.this,-1,user,Integer.valueOf(id),numOfadult,numOfchild,numOfinfant));
-                        System.out.println("test message 002");
+
                         if(!od){
                             Toast.makeText(Booking.this,"預定失敗 !",Toast.LENGTH_LONG).show();
                         }else{
