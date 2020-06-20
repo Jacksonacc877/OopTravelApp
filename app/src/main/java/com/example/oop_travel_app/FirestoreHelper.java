@@ -24,10 +24,13 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class FirestoreHelper {
     public ArrayList<Order> mOrders=new ArrayList();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayList<Account> userIDs=new ArrayList();
-    private Map<String, Object> tripIDs=new HashMap<String, Object>();
+    private ArrayList<Account> userIDs;
+    private Map<String, Object> tripIDs;
 
-    public FirestoreHelper(){  }
+    public FirestoreHelper(){
+        userIDs=new ArrayList();
+        tripIDs=new HashMap<String, Object>();
+    }
     public Map<String, Object> getTripIDs() { return tripIDs; }
     public ArrayList<Account> getUserIDs() {
         return userIDs;
@@ -145,13 +148,14 @@ public class FirestoreHelper {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        tripIDs=document.getData();
+                        tripIDs.put(document.getId(),document.getData().get("bookedTraveler"));
+
                         Log.d("fsh.tripInit", document.getId() + " => " + document.getData());
                     }
                 } else {
                     Log.d("fsh.tripInit", "Error getting documents: ", task.getException());
                 }
-                System.out.println("Loading finish !");
+                System.out.println("Check 2 "+tripIDs);
             }
         });
     }
