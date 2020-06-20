@@ -1,0 +1,101 @@
+<resources>
+    <!--App title & Setting above -->
+    <string name="app_name">Oop_Travel_App</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <!--開始畫面1 -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="goto_homepage">Start</string>
+    <string name="previous">Previous</string>
+    <string name="welcome_user">Welcome User !!!</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_title">Travel Searching app</string>
+    <string name="our_app_logo">Our app logo</string>
+
+    <!--開始畫面2 -->
+    <!-- Button -->
+    <string name="app_title2">Travel Searching Service</string>
+    <string name="go_search">查詢行程/預定</string>
+    <string name="go_revised">訂單修改/檢查</string>
+    <string name="editor_name">edit by XXX,XXX,XXX,XXX</string>
+
+    <!-- 搜尋主頁 -->
+    <string name="search_title"> Search for available trip !</string>
+    <string name="search_region">Input a region </string>
+    <string name="search_startDate">Input start dare !</string>
+
+    <!-- 搜尋日期 -->
+    <string name="hintStartDate">開始日</string>
+    <string name="hintEndDate">結束日</string>
+
+    <!--搜尋結果初步資訊 -->
+    <string name="searchtrip_priceinterval">價錢區間 ： </string>
+    <string name="searchtrip_dateinterval">出團日期 ： </string>
+
+    <!--搜尋結果詳細資訊-->
+    <string name="search_result_detail"> Detail</string>
+    <string name="search_result_info"> Information</string>
+    <string name="search_result_goArrange">Go to booking!</string>
+
+
+    <!--listview_layout-->
+    <string name="listview_ID">ID : </string>
+    <string name="listview_Price">Price : </string>
+
+    <!--管理頁面 -->
+    <string name="arrange_title">預定資訊</string>
+    <string name="arrange_tipname">Trip name : </string>
+    <string name="arrange_tripid">Trip ID : </string>
+    <string name="arrange_username">訂單人 : </string>
+    <string name="arrange_phone">電話 ： </string>
+    <string name="numOfAdult">成人人數 ： </string>
+    <string name="numOfChild">小孩人數 ： </string>
+    <string name="numOfInfant">嬰兒人數 ： </string>
+    <string name="total_amount">總價錢 ： </string>
+    <string name="booked">確認預定</string>
+    <string name="backtohome">Home</string>
+
+    <!-- 修改頁面 -->
+    <string name="revised_title">訂單管理</string>
+    <string name="revised_username">預訂人 ： </string>
+    <string name="revised_orderphone">電話 ： </string>
+    <string name="revised_search">訂單查詢</string>
+    <string name="revised_orderdata">你的訂單資訊</string>
+
+    <!-- arrange_listview_layout -->
+    <string name="arrange_listview_layout_travelregion">旅遊地區 ： </string>
+    <string name="arrange_listview_layout_date">日期 ： </string>
+    <string name="arrange_listview_layout_numOfTotalMember">總人數 ： </string>
+    <string name="arrange_listview_layout_price">總金額 ： </string>
+
+    <string name="revised_detail_title">訂單詳細資訊</string>
+    <string name="revised_detail_tripname">行程名稱 ： </string>
+    <string name="revised_detail_username">預訂人 ： </string>
+    <string name="revised_detail_phone">電話 ： </string>
+    <string name="revised_detail_date">行程日期 ： </string>
+    <string name="revised_detail_passengerinfo">乘客資訊 ： </string>
+    <string name="revised_detail_totalmoney">總價 ： </string>
+    <string name="gorevised_button">修改訂單</string>
+    <string name="godelete_button">刪除訂單</string>
+
+
+    <!-- 訂單修改畫面 -->
+    <string name="inrevisd_title">訂單修改</string>
+    <string name="revised_before">原先資訊</string>
+    <string name="revised_after">修改資訊</string>
+    <string name="check_revisedbutton">修改</string>
+    <string name="title_activity_test_navigation_drawer">test_navigation_drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- 底層菜單 -->
+    <string name="homepage_button">主頁</string>
+    <string name="searchpage_button">搜尋行程</string>
+    <string name="arrangepage_button">訂單管理</string>
+
+</resources>

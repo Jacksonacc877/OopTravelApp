@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.oop_travel_app">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".order_related.Revised" />
+        <activity android:name=".order_related.OrderDetailwithDelete" />
+        <activity android:name=".search_related.listview_forsearch" />
+        <activity android:name=".search_related.Search_Result_SameTitle" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
+        <activity android:name=".search_related.Trip_DetailwithBooking" />
+        <activity android:name=".order_related.ArrangeHomepage" />
+        <activity android:name=".search_related.Booking" />
+        <activity android:name=".search_related.SearchHomepage" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

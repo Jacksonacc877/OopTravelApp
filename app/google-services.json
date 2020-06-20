@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "903081382287",
+    "firebase_url": "https://traveloop2020.firebaseio.com",
+    "project_id": "traveloop2020",
+    "storage_bucket": "traveloop2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903081382287:android:d834afc189cade078c3bfa",
+        "android_client_info": {
+          "package_name": "com.example.oop_travel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903081382287-36gi3tkso0gicemqqs7kg5kf4iojp1t1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oop_travel_app",
+            "certificate_hash": "d6c46a66680c88a13eb1d97b3e71bc5ce0ecd8a2"
+          }
+        },
+        {
+          "client_id": "903081382287-322d8jc443fk0qnv351njrsfhoro1bmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH-Z-5DJpFCw07Ai22z4vzEX0SixJ9iIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903081382287-322d8jc443fk0qnv351njrsfhoro1bmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
