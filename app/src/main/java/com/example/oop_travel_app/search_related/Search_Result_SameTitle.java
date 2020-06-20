@@ -53,7 +53,13 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         TextView SRListdate = (TextView)findViewById(R.id.trip_region_Userin);
         SRListdate.setText(region_User_input);
 
+<<<<<<< HEAD
+        fsh=new FirestoreHelper();
+        fsh.tripInit();
+
+=======
         String startdate=bundle_test.getString("StartDate");
+>>>>>>> ef7a5c14b898eb325835ccbdf463ec561c74d382
         Start_date =(EditText)findViewById(R.id.start_date);
         Start_date.setText(startdate);
         String enddate=bundle_test.getString("EndDate");
@@ -78,8 +84,7 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         srd=(ImageButton)findViewById(R.id.srd);
         srd.setOnClickListener(srd_listener);
 
-        fsh=new FirestoreHelper();
-        fsh.tripInit();
+
 
         final String[] choice={"依價錢排列","依日期排列"};
         ArrayAdapter<String> permuteadpater =new ArrayAdapter<>(Search_Result_SameTitle.this,android.R.layout.simple_spinner_dropdown_item,choice);
@@ -100,10 +105,14 @@ public class Search_Result_SameTitle extends AppCompatActivity {
                 ListView listView = (ListView) parent;
                 Intent intent = new Intent(Search_Result_SameTitle.this, Trip_DetailwithBooking.class);
                 Bundle bundle_test = new Bundle();
-                String ID =(String) list.get(position).get("ID");
-                bundle_test.putString("ID", ID);
-                int bookTraveler=0;
-                if (!(fsh.getTripIDs().get(ID)==null)) bookTraveler=(int) fsh.getTripIDs().get(ID);
+                String tID =(String) list.get(position).get("ID");
+                bundle_test.putString("ID", tID);
+                Integer bookTraveler=0;
+                tID=tID.trim();
+                System.out.println("Check  1 " + (fsh.getTripIDs()).get(tID));
+                if (!((fsh.getTripIDs()).get((tID))==null)){
+                    bookTraveler=((Long) (fsh.getTripIDs()).get(tID)).intValue();
+                }
                 bundle_test.putInt("bookTraveler", bookTraveler);
                 intent.putExtras(bundle_test);
                 startActivity(intent);

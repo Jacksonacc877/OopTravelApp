@@ -36,7 +36,7 @@ public class UserOperation {
 	public boolean bookATrip(Order order){
 		int maxID=-1;
 		int booked=0;
-		List<Integer> orders=new ArrayList();
+
 
 		int tripID=order.getTripID();
 		int numOfAdult=order.getNumOfAdult();
