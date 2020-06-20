@@ -3,9 +3,12 @@ package com.example.oop_travel_app.database_function;
 
 import android.content.Context;
 
+import com.example.oop_travel_app.FirestoreHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 
 public class DataList {
@@ -13,12 +16,15 @@ public class DataList {
 	DBOperation dbo;
 	private String[] result;
 	private int[] travelCode;
+	private FirestoreHelper fsh;
 	int resultSize=0;
 
 
 	public DataList(Context c){
 		context=c;
 		dbo=new DBOperation(context);
+		fsh=new FirestoreHelper();
+		fsh.tripInit();
 	}
 
 
@@ -30,11 +36,7 @@ public class DataList {
 		return result;
 	}
 
-	public int[] getTravelCode() {
-		int[] err={-1};
-		if (travelCode.length!=0) return travelCode;
-		else return err;
-	}
+
 
 	/**
 	 * Search the input place from the column Country ,  travel_code_name ,
@@ -99,34 +101,7 @@ public class DataList {
 		return titleData;
 	}
 
-	/**
-	 * List all the data with certain title
-	 * @param title ,the trip which you want to know more
-	 * @return match trip detail data
-	 */
-	public String[] listTitleData(String title) {
-		String sql = "SELECT DISTINCT tripID,price,startDate,endDate FROM trip "
-				+ "WHERE title Like '" + title + "';";
-		dbo.selectData(sql, 4);
-		result=dbo.getResultSet();
-		resultSize=result.length;
-		return result;
-	}
-	/**
-	 * List all the data with certain title
-	 * @param title ,the trip which you want to know more
-	 * @return match trip detail data
-	 */
-	public String[] listTitleData(String title,Boolean orderByPrice) {
-		String sql = "SELECT DISTINCT tripID,price,startDate,endDate FROM trip "
-				+ "WHERE title Like '" + title + "'";
-		if (orderByPrice) sql+="ORDER BY price ;";
-		else sql+=";";
-		dbo.selectData(sql, 4);
-		result=dbo.getResultSet();
-		resultSize=result.length;
-		return result;
-	}
+
 	/**
 	 * List all the data with certain title and certain start_date
 	 * @param title ,the trip which you want to know more
@@ -140,7 +115,7 @@ public class DataList {
 		String sql = "SELECT DISTINCT tripID,price,startDate,endDate FROM trip "
 				+ "WHERE title Like '" + title + "' "
 				+ "and date(startDate) >= date('"+ startDate +"') "
-				+ "and date(endDate) <= date('"+ endDate +"') ";
+				+ "and date(startDate) <= date('"+ endDate +"') ";
 		if (orderByPrice) sql+=" ORDER BY price ;";
 		else sql+=";";
 		dbo.selectData(sql, 4);
@@ -150,32 +125,15 @@ public class DataList {
 	}
 
 
-	/**
-	 * List all the data with certain title and certain start_date
-	 * @param title ,the trip which you want to know more
-	 * @param startDate ,the date you expect the trip start after
-	 * @param endDate ,the date you expect the trip start after
-	 * @return match trip detail data
-	 */
-	public String[] listTitleData(String title,String startDate,String endDate) {
-		String sql = "SELECT DISTINCT tripID,price,startDate,endDate FROM trip "
-				+ "WHERE title Like '" + title + "' "
-				+ "and date(startDate) >= date('"+ startDate + "') "
-				+ "and date(endDate) <= date('"+ endDate + "');";
-		dbo.selectData(sql, 4);
-		result=dbo.getResultSet();
-		resultSize=result.length;
-		return result;
-	}
 
 	/**
 	 * input trip id then return all information
 	 * @param id of the trip want to search
 	 * @return all data in String Array
 	 */
-	public String[] getTripData(int id){
-		String sql = "SELECT tripID,title,price,startDate,endDate,lowerBound,upperBound,bookedTraveler FROM trip WHERE tripID = "+id+" ;";
-		dbo.selectData(sql, 8);
+	public String[] getTripData(int id,int bookedTraveler){
+		String sql = "SELECT tripID,title,price,startDate,endDate,lowerBound,upperBound FROM trip WHERE tripID = "+id+" ;";
+		dbo.selectData(sql, 7);
 		result=(dbo.getResultSet());
 		for (String s:result){
 			result=s.split(" , ");
@@ -184,10 +142,10 @@ public class DataList {
 		for (int i =0;i<5;i++ ){
 			output[i]=result[i];
 		}
-		if (Integer.valueOf(result[7])>=Integer.valueOf(result[5])) output[5]= "已可出團";
-		else output[5]= "還差 "+ String.valueOf(Integer.valueOf(result[5])-Integer.valueOf(result[7])) +" 人可出團" ;
-		if (Integer.valueOf(result[7])==Integer.valueOf(result[5])) output[6]= "已額滿";
-		else output[6]="尚未額滿，還可以報 "+String.valueOf(Integer.valueOf(result[6])-Integer.valueOf(result[7]))+" 人";
+		if (bookedTraveler>=Integer.valueOf(result[5])) output[5]= "已可出團";
+		else output[5]= "還差 "+ (Integer.valueOf(result[5])-bookedTraveler) +" 人可出團" ;
+		if (bookedTraveler>=Integer.valueOf(result[5])) output[6]= "已額滿";
+		else output[6]="尚未額滿，還可以報 "+(Integer.valueOf(result[6])-bookedTraveler)+" 人";
 		result=new String[7];
 		result=output;
 		resultSize=result.length;

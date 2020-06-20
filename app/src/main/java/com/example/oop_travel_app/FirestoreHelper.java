@@ -25,13 +25,14 @@ public class FirestoreHelper {
     public ArrayList<Order> mOrders=new ArrayList();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Account> userIDs=new ArrayList();
+    private Map<String, Object> tripIDs=new HashMap<String, Object>();
 
     public FirestoreHelper(){  }
-
+    public Map<String, Object> getTripIDs() { return tripIDs; }
     public ArrayList<Account> getUserIDs() {
         return userIDs;
     }
-    public void orderInit() {
+    public void orderExample() {
         DocumentReference orderIDs = db.collection("orderIDs").document("example");
         Map<String, Object> info = new HashMap<>();
         info.put("userID", "Hello World");
@@ -48,7 +49,7 @@ public class FirestoreHelper {
     }
 
 
-    public void userInit() {
+    public void userExample() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference userIDs = db.collection("userIDs").document("example");
         Map<String, Object> info = new HashMap<>();
@@ -59,7 +60,7 @@ public class FirestoreHelper {
         userIDs.set(info);
     }
 
-    public void newOrder(Order o,int maxID,int booked,List orders){
+    public void newOrder(Order o,int maxID,int booked){
         DocumentReference orderIDs = db.collection("orderIDs").document(String.valueOf(maxID+1));
         Map<String, Object> info = new HashMap<>();
         info.put("orderID",maxID+1);
@@ -71,7 +72,6 @@ public class FirestoreHelper {
         info.put("numOfInfant", o.getNumOfInfant());
         orderIDs.set(info);
         syncTrip(o,booked);
-        syncUser(o,orders);
     }
 
     public void syncTrip(Order o,int booked){
@@ -81,14 +81,8 @@ public class FirestoreHelper {
         tripIDs.set(info);
     }
 
-    public void syncUser(Order o,List orders){
-        DocumentReference userIDs = db.collection("userIDs").document(String.valueOf(o.getUserID()));
-        Map<String, Object>info = new HashMap<>();
-        info.put("bookedTraveler",orders.add(o.getOrderID()));
-        userIDs.set(info);
-    }
 
-    public void deleteOrder(Integer oID){
+    public void deleteOrder(Integer oID,int tID,int numOfRemain){
         db.collection("orderIDs").document(oID.toString())
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -103,20 +97,15 @@ public class FirestoreHelper {
                         Log.w(TAG, "Error deleting document", e);
                     }
                 });
+        DocumentReference tripIDs = db.collection("tripIDs").document(String.valueOf(tID));
+        Map<String, Object>info = new HashMap<>();
+        info.put("bookedTraveler",numOfRemain);
+        tripIDs.set(info);
     }
 
-    public Order readOrder(int orderID) {
-        Order order=new Order();
-        for (Order o:mOrders){
-            if (o.getOrderID()==orderID) {
-                order=o;
-                break;
-            }
-        }
-        return order;
-    }
 
-    public void initialize(){
+
+    public void orderInit(){
         db.collection("orderIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -132,7 +121,8 @@ public class FirestoreHelper {
             }
         });
     }
-    public void initialize2(){
+
+    public void userInit(){
         db.collection("userIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -148,6 +138,26 @@ public class FirestoreHelper {
             }
         });
     }
+
+    public void tripInit(){
+        db.collection("tripIDs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        tripIDs=document.getData();
+                        Log.d("fsh.tripInit", document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.d("fsh.tripInit", "Error getting documents: ", task.getException());
+                }
+                System.out.println("Loading finish !");
+            }
+        });
+    }
+
+
+
     /**
      * create a new account or modify the imfomation of account
      * @param userID

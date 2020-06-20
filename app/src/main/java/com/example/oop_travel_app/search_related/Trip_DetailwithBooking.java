@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
@@ -25,17 +26,23 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
     private Button goArrange;
     private ImageButton tds,tdo,tdh,tda,tdd;
     protected String id, title,price,startday,endday;
+<<<<<<< HEAD
     private boolean okdate=true;
+=======
+
+>>>>>>> 6d10e56f3b052a21e1b99dee05ac1c588256faeb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tripdetailwithbooking);
+
         Bundle bundle_test=this.getIntent().getExtras();
         String s=bundle_test.getString("ID");
+        int bookedTraveler =bundle_test.getInt("bookTraveler");;
         s=s.replaceAll("\\s","");
         int region_number=Integer.parseInt(s);
         DataList dl=new DataList(Trip_DetailwithBooking.this);
-        String[]  info= dl.getTripData(region_number);
+        String[]  info= dl.getTripData(region_number,bookedTraveler);
         id=info[0];
         title=info[1];
         String Price=info[2];

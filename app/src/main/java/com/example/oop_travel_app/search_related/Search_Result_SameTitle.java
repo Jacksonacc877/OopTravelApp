@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.DevlopHomepage;
+import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.MainActivity;
 import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
@@ -40,6 +41,7 @@ public class Search_Result_SameTitle extends AppCompatActivity {
     private listview_forsametitle tld;
     private Spinner priceOrdate;
     private Boolean permutation=true;  //T = by price ; F = by date; default = T
+    private FirestoreHelper fsh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +78,8 @@ public class Search_Result_SameTitle extends AppCompatActivity {
         srd=(ImageButton)findViewById(R.id.srd);
         srd.setOnClickListener(srd_listener);
 
-
+        fsh=new FirestoreHelper();
+        fsh.tripInit();
 
         final String[] choice={"依價錢排列","依日期排列"};
         ArrayAdapter<String> permuteadpater =new ArrayAdapter<>(Search_Result_SameTitle.this,android.R.layout.simple_spinner_dropdown_item,choice);
@@ -99,6 +102,9 @@ public class Search_Result_SameTitle extends AppCompatActivity {
                 Bundle bundle_test = new Bundle();
                 String ID =(String) list.get(position).get("ID");
                 bundle_test.putString("ID", ID);
+                int bookTraveler=0;
+                if (!(fsh.getTripIDs().get(ID)==null)) bookTraveler=(int) fsh.getTripIDs().get(ID);
+                bundle_test.putInt("bookTraveler", bookTraveler);
                 intent.putExtras(bundle_test);
                 startActivity(intent);
             }
