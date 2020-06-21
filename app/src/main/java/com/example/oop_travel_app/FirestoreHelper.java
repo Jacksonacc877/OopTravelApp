@@ -36,23 +36,6 @@ public class FirestoreHelper {
     public ArrayList<Account> getUserIDs() {
         return userIDs;
     }
-    public void orderExample() {
-        DocumentReference orderIDs = db.collection("orderIDs").document("example");
-        Map<String, Object> info = new HashMap<>();
-        info.put("userID", "Hello World");
-        info.put("tripID", -1);
-        info.put("tripInfo", Arrays.asList(new String[]{"a", "b", "c","d"}));
-        info.put("numOfChild", -1);
-        info.put("numOfAdult", -1);
-        info.put("numOfInfant", -1);
-        orderIDs.set(info);
-        DocumentReference tripIDs =db.collection("tripIDs").document("-1");
-        info = new HashMap<>();
-        info.put("bookedTraveler",-3);
-        tripIDs.set(info);
-    }
-
-
 
     public void newOrder(Order o,int maxID,int booked){
         DocumentReference orderIDs = db.collection("orderIDs").document(String.valueOf(maxID+1));
@@ -74,7 +57,6 @@ public class FirestoreHelper {
         info.put("bookedTraveler",booked+o.getNumOfChild()+o.getNumOfAdult()+o.getNumOfInfant());
         tripIDs.set(info);
     }
-
 
     public void deleteOrder(Integer oID,int tID,int numOfRemain){
         db.collection("orderIDs").document(oID.toString())
@@ -167,19 +149,16 @@ public class FirestoreHelper {
 
 
     /**
-     * create a new account or modify the imfomation of account
+     * create a new account or modify the information
      * @param userID
      * @param name
      * @param password
      * @param phone
      */
     public void modifyAccount(String userID,String name,String password,String phone){
-
         DocumentReference userIDs = db.collection("userIDs").document(userID);
-
         Map<String, Object> info = new HashMap<>();
         info.put("userID",userID);
-        info.put("name",name);
         info.put("userName",name);
         info.put("password",password);
         info.put("userPhone",phone);

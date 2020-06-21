@@ -110,7 +110,6 @@ public class ArrangeHomepage extends AppCompatActivity {
             String s=Check_login.useraccount;
             ArrayList<Order> result=uo.inquireOrders(s);
 
-
             if(result.size()==0){
                 Toast.makeText(ArrangeHomepage.this,"fail",Toast.LENGTH_LONG).show();
             }else {

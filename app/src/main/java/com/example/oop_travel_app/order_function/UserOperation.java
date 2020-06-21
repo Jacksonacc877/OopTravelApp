@@ -50,10 +50,8 @@ public class UserOperation {
 		}
 		if(upperBound>=(booked+numOfAdult+numOfChild+numOfInfant)){
 			fsh.newOrder(order,maxID,booked);
-			System.out.println("order successful");
 			return true ;
 		}else{
-			System.out.println("Invalid order ");
 			operatinonState = "人數超過上限";
 			return false;
 		}
@@ -80,11 +78,9 @@ public class UserOperation {
     }
 	
 	public Boolean updateTheTrip(Order oldOne, int changeNumOfAdult, int changeNumOfChild, int changeNumOfInfant) {
-//		int maxID=-1;
 		int booked=0;
 		for (Order o:fsh.mOrders){
 			if (o.getTripID()==oldOne.getTripID())booked+=o.getNumOfAdult()+o.getNumOfInfant()+o.getNumOfChild();
-//			if (o.getOrderID()>maxID) maxID=o.getOrderID();
 		}
 		Order newOne=new Order(context,oldOne.getOrderID(),oldOne.getUserID(),oldOne.getTripID()
 				,changeNumOfAdult,changeNumOfChild,changeNumOfInfant);
@@ -92,8 +88,6 @@ public class UserOperation {
 		int upperBound=Integer.valueOf((dbo.getResultSet())[0]);
 		if(upperBound>=(booked+changeNumOfAdult+changeNumOfChild+changeNumOfInfant)){
 			deleteTheTrip(oldOne.getOrderID());
-//			fsh.newOrder(newOne,maxID,booked);
-//			System.out.println("order successful");
 			bookATrip(newOne);
 			return true ;
 		}else{
@@ -133,16 +127,9 @@ public class UserOperation {
 	}
 
 	public ArrayList<Order> inquireOrders(String userID) {
-		System.out.println(0);
 		ArrayList<Order> result=new ArrayList();
-
-		System.out.println(1);
-		System.out.println("fsh.mOrder : "+fsh.mOrders.size());
 		for(Order o:fsh.mOrders){
-
-			System.out.println("Get UserID Check "+o.getUserID());
 			if ((o.getUserID()).equals(userID)){
-				System.out.println(10);
 				result.add(o);
 			}
 		}
