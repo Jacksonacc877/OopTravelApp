@@ -54,6 +54,7 @@ public class UserOperation {
 			return true ;
 		}else{
 			System.out.println("Invalid order ");
+			operatinonState = "人數超過上限";
 			return false;
 		}
 	}
@@ -97,6 +98,7 @@ public class UserOperation {
 			return true ;
 		}else{
 			System.out.println("Invalid order ");
+			operatinonState = "修改後的人數超過上限";
 			return false;
 		}
 	}
