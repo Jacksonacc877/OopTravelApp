@@ -135,10 +135,13 @@ public class UserOperation {
 	public ArrayList<Order> inquireOrders(String userID) {
 		System.out.println(0);
 		ArrayList<Order> result=new ArrayList();
+
 		System.out.println(1);
+		System.out.println("fsh.mOrder : "+fsh.mOrders.size());
 		for(Order o:fsh.mOrders){
-			System.out.println(5);
-			if ((o.getUserID()).contentEquals(userID)){
+
+			System.out.println("Get UserID Check "+o.getUserID());
+			if ((o.getUserID()).equals(userID)){
 				System.out.println(10);
 				result.add(o);
 			}
