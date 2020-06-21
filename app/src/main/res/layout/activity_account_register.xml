@@ -8,34 +8,22 @@
     tools:context=".Account_register">
 
     <TextView
-        android:id="@+id/regis_account"
+        android:id="@+id/regis_repassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="121dp"
-        android:text="@string/regis_account"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:text="@string/regis_repassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/regis_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/regis_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_et_account" />
+        tools:layout_editor_absoluteY="411dp" />
 
     <TextView
         android:id="@+id/regis_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="36dp"
         android:text="@string/regis_phone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_name" />
@@ -44,22 +32,34 @@
         android:id="@+id/regis_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="32dp"
         android:text="@string/regis_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_etphone" />
 
     <TextView
-        android:id="@+id/regis_repassword"
+        android:id="@+id/regis_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:text="@string/regis_repassword"
+        android:layout_marginTop="24dp"
+        android:text="@string/regis_name"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="411dp" />
+        app:layout_constraintTop_toBottomOf="@+id/regis_et_account" />
+
+    <TextView
+        android:id="@+id/regis_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/regis_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/regis_et_account"
