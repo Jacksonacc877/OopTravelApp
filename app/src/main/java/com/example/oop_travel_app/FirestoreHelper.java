@@ -128,7 +128,6 @@ public class FirestoreHelper {
                 } else {
                     Log.d("fsh.orderInit", "Error getting documents: ", task.getException());
                 }
-                System.out.println("Loading finish !");
             }
         });
     }
@@ -145,7 +144,6 @@ public class FirestoreHelper {
                 } else {
                     Log.d("fsh.userInit", "Error getting documents: ", task.getException());
                 }
-                System.out.println("Loading finish !");
             }
         });
     }
@@ -157,13 +155,11 @@ public class FirestoreHelper {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         tripIDs.put(document.getId(),document.getData().get("bookedTraveler"));
-
                         Log.d("fsh.tripInit", document.getId() + " => " + document.getData());
                     }
                 } else {
                     Log.d("fsh.tripInit", "Error getting documents: ", task.getException());
                 }
-                System.out.println("Check 2 "+tripIDs);
             }
         });
     }

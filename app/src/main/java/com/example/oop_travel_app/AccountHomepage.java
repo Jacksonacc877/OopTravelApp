@@ -18,13 +18,20 @@ public class AccountHomepage extends AppCompatActivity {
     private EditText accounts,passwords;
     private Button login, regis;
     private ImageButton ahs,aho,ahh,aha,ahd;
-    private Account account;
+    private FirestoreHelper fsh;
+    private Account acc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_homepage);
-        account=new Account("");
+        fsh=new FirestoreHelper();
+        fsh.userInit();
+        acc=new Account("");
+
+
+
+
 
         accounts=(EditText)findViewById(R.id.account_et1);
         passwords=(EditText)findViewById(R.id.account_et2);
@@ -53,9 +60,31 @@ public class AccountHomepage extends AppCompatActivity {
             String str_account,str_password;
             str_account=accounts.getText().toString();
             str_password=passwords.getText().toString();
-            checkaccount=account.login(str_account,str_password);
+            checkaccount=acc.login(str_account,str_password);
             if(checkaccount){
+                Account acc=new Account();
+                for (Account a:fsh.getUserIDs()){
+                    if (a.getUserID().contentEquals(str_account)){
+                        acc=a;
+                        break;
+                    }
+                }
                 Intent intent=new Intent(AccountHomepage.this,Account_information.class);
+
+                String str_name=acc.getUserName();
+                String str_userID=acc.getUserID();
+                String str_phones=acc.getUserPhone();
+                String str_passwordss=acc.getPassword();
+                System.out.println("Check "+str_name);
+                System.out.println("Check "+str_userID);
+                System.out.println("Check "+str_phones);
+
+                Bundle bundle=new Bundle();
+                bundle.putString("str_phones",str_phones);
+                bundle.putString("str_name",str_name);
+                bundle.putString("str_userID",str_userID);
+                bundle.putString("str_passwordss",str_passwordss);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }else{
                 Toast.makeText(AccountHomepage.this,"wrong account or wrong passwoed!",Toast.LENGTH_LONG).show();
