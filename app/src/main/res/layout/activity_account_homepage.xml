@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/background4"
     tools:context=".AccountHomepage">
 
     <TextView
@@ -130,7 +130,7 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/account" />
 
         <ImageButton
             android:id="@+id/ahd"
@@ -139,7 +139,7 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/develope" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,8 @@ public class Revised extends AppCompatActivity {
     private Spinner adultspinner,childspinner,infantspinner;
     private int price,numOfadult=0,numOfchild=0,numOfinfant=0,orderid;
     private ImageButton rs,ro,rh,ra,rd;
-    Order oldOne =new Order();
+    private Order oldOne =new Order();
+    private UserOperation Uo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class Revised extends AppCompatActivity {
         String[] str=bundle.getString("info").split(",");
         oldOne =new Order(this,Integer.valueOf(str[1]),str[2],Integer.valueOf(str[3]),
                 Integer.valueOf(str[4]),Integer.valueOf(str[5]),Integer.valueOf(str[6]));
+        Uo=new UserOperation(Revised.this);
+
 
         String username=str[2];
         inrevisd_user=(TextView)findViewById(R.id.inrevised_user);
@@ -51,13 +54,15 @@ public class Revised extends AppCompatActivity {
         String getadult=str[4];
         adultnum=(TextView)findViewById(R.id.inrevised_adultnum);
         adultnum.setText("成人人數 ： "+getadult);
+        numOfadult=Integer.valueOf(getadult);
         String getchild=str[5];
         childnum=(TextView)findViewById(R.id.inrevised_childnum);
         childnum.setText("小孩人數 ： "+getchild);
+        numOfchild=Integer.valueOf(getchild);
         String getinfant=str[6];
         infantnum=(TextView)findViewById(R.id.inrevised_infantnum);
         infantnum.setText("嬰兒人數 ： "+getinfant);
-
+        numOfinfant=Integer.valueOf(getinfant);
         String prices=str[12];
         price_before=(TextView)findViewById(R.id.inrevised_pricebefore);
         price_before.setText("訂單總價 ： "+prices);
@@ -74,12 +79,15 @@ public class Revised extends AppCompatActivity {
         ArrayAdapter<String> numberadapter =new ArrayAdapter<>(Revised.this,android.R.layout.simple_spinner_dropdown_item,number);
         adultspinner=(Spinner)findViewById(R.id.inrevisd_adultspinner);
         adultspinner.setAdapter(numberadapter);
+        adultspinner.setSelection(numOfadult);
         adultspinner.setOnItemSelectedListener(adultlistener);
         childspinner=(Spinner)findViewById(R.id.inrevised_childspinner);
         childspinner.setAdapter(numberadapter);
+        childspinner.setSelection(numOfchild);
         childspinner.setOnItemSelectedListener(childlistener);
         infantspinner=(Spinner)findViewById(R.id.inrevised_infantspinner);
         infantspinner.setAdapter(numberadapter);
+        infantspinner.setSelection(numOfinfant);
         infantspinner.setOnItemSelectedListener(infantlistener);
 
         rs=(ImageButton)findViewById(R.id.rs);
@@ -97,9 +105,9 @@ public class Revised extends AppCompatActivity {
     View.OnClickListener inrevised_button_listener =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            UserOperation Uo=new UserOperation(Revised.this);
-            Uo.updateTheTrip(oldOne,numOfadult,numOfchild,numOfinfant);
-            Toast.makeText(Revised.this,"修改成功",Toast.LENGTH_LONG).show();
+            boolean op=Uo.updateTheTrip(oldOne,numOfadult,numOfchild,numOfinfant);
+            if (op)Toast.makeText(Revised.this,"修改成功",Toast.LENGTH_LONG).show();
+            else Toast.makeText(Revised.this,Uo.getOperatinonState(),Toast.LENGTH_LONG).show();
         }
     };
 
