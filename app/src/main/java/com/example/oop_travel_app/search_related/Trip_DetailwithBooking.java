@@ -26,13 +26,9 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
     private Button goArrange;
     private ImageButton tds,tdo,tdh,tda,tdd;
     protected String id, title,price,startday,endday;
-<<<<<<< HEAD
 
     private boolean okdate=true;
 
-=======
-    private boolean okdate=true;
->>>>>>> 6387fe34014df18dcb8173caaa809df6b8001292
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

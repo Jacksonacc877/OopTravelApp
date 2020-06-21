@@ -40,17 +40,6 @@ public class Account {
 
 
 
-
-
-
-
-
-<<<<<<< HEAD
-
-
-	FirestoreHelper fbs = new FirestoreHelper();
-=======
->>>>>>> 6387fe34014df18dcb8173caaa809df6b8001292
 	public boolean register(String ID, String userName, String password, String userPhone){
 		ArrayList<Account> userIDs = fsh.getUserIDs();
 		boolean same=false;

@@ -25,10 +25,11 @@ public class OrderDetailwithDelete extends AppCompatActivity {
     private int orderid;
     private String userid,info;
     private ImageButton os,oo,oh,oa,od;
+    UserOperation Uo2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ArrangeHomepage ah=new ArrangeHomepage();
+        Uo2=new UserOperation(OrderDetailwithDelete.this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderdetail);
@@ -89,7 +90,7 @@ public class OrderDetailwithDelete extends AppCompatActivity {
             builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    UserOperation Uo2=new UserOperation(OrderDetailwithDelete.this);
+
                     Boolean d=Uo2.deleteTheTrip(orderid);
                     Toast.makeText(OrderDetailwithDelete.this,"退訂成功,已取消您的預訂紀錄",Toast.LENGTH_LONG).show();
                 }

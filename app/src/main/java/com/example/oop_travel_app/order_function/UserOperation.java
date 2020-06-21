@@ -30,7 +30,6 @@ public class UserOperation {
 		dbo = new DBOperation (c);
 		fsh=new FirestoreHelper();
 		fsh.orderInit();
-
 	}
 
 	public boolean bookATrip(Order order){
@@ -49,7 +48,8 @@ public class UserOperation {
 			if (o.getTripID()==tripID)booked+=o.getNumOfAdult()+o.getNumOfInfant()+o.getNumOfChild();
 			if (o.getOrderID()>maxID) maxID=o.getOrderID();
 		}
-		if(upperBound>(booked+numOfAdult+numOfChild+numOfInfant)){
+		if(upperBound>=(booked+numOfAdult+numOfChild+numOfInfant)){
+
 			fsh.newOrder(order,maxID,booked);
 			System.out.println("order successful");
 			return true ;
@@ -60,9 +60,7 @@ public class UserOperation {
 	}
 
     public boolean deleteTheTrip(int orderID) {
-        int numOfRemain=0;
-        int tID=0;
-        int numOfThis=0;
+        int numOfRemain=0,numOfThis=0,tID=0;
 		for (Order o:fsh.mOrders) {
 			if(o.getOrderID()==orderID)	{
 				tID=o.getTripID();
@@ -76,6 +74,7 @@ public class UserOperation {
 			}
 		}
 		numOfRemain=numOfRemain-numOfThis;
+		System.out.println("check numOfRemain="+numOfRemain+"numOfThis="+numOfThis+"tID="+tID);
 		fsh.deleteOrder(orderID,tID,numOfRemain);
         return true;
     }

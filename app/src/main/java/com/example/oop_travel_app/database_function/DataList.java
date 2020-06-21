@@ -144,7 +144,7 @@ public class DataList {
 		}
 		if (bookedTraveler>=Integer.valueOf(result[5])) output[5]= "已可出團";
 		else output[5]= "還差 "+ (Integer.valueOf(result[5])-bookedTraveler) +" 人可出團" ;
-		if (bookedTraveler>=Integer.valueOf(result[5])) output[6]= "已額滿";
+		if (bookedTraveler>=Integer.valueOf(result[6])) output[6]= "已額滿";
 		else output[6]="尚未額滿，還可以報 "+(Integer.valueOf(result[6])-bookedTraveler)+" 人";
 		result=new String[7];
 		result=output;
