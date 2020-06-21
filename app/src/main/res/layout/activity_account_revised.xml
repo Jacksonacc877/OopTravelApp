@@ -107,7 +107,6 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/ar_password"
         app:layout_constraintTop_toBottomOf="@+id/ar_etphone" />
 
@@ -131,7 +130,6 @@
         android:layout_marginTop="33dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/ar_repassword"
         app:layout_constraintTop_toBottomOf="@+id/ar_etpassword" />
 

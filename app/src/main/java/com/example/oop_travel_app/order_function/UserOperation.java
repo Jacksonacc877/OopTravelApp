@@ -127,7 +127,7 @@ public class UserOperation {
 	public ArrayList<Order> inquireOrders(String userID) {
 		ArrayList<Order> result=new ArrayList();
 		for(Order o:fsh.mOrders){
-			if (o.getUserID().contentEquals(userID)){
+			if ((o.getUserID()).contentEquals(userID)){
 				result.add(o);
 			}
 		}

@@ -1,7 +1,9 @@
 package com.example.oop_travel_app.order_related;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -11,9 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.Check_login;
 import com.example.oop_travel_app.DevlopHomepage;
 import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.MainActivity;
@@ -30,53 +34,69 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArrangeHomepage extends AppCompatActivity {
-    private EditText InputUserName,InputPhoneNumber;
+    private TextView order_username;
     private ImageButton as,ao,ah,aa,ad;
-    private String inputuser,inputphone;
+    private String inputuser;
     private ListView listView;
     private ArrayList<Map<String, Object>> list;
     private listview_forarrange layoutlist;
-    UserOperation uo;
+    private UserOperation uo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        uo=new UserOperation(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arrangehomepage);
+        uo=new UserOperation(this);
 
-        InputUserName = (EditText) findViewById(R.id.revised_inputusername);
-        InputPhoneNumber = (EditText) findViewById(R.id.revised_inputorderid);
+        if(Check_login.alreadylogin==0){
+            AlertDialog.Builder builder=new AlertDialog.Builder(ArrangeHomepage.this);
+            builder.setTitle("你尚未登入");
+            builder.setMessage("請登入以管理你的訂單");
+            builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent =new Intent(ArrangeHomepage.this,AccountHomepage.class);
+                    startActivity(intent);
+                }
+            });
+            builder.show();
+        }else{
 
-        Button revised_button = (Button) findViewById(R.id.revised_button);
-        revised_button.setOnClickListener(revised_button_listener);
+            order_username=(TextView)findViewById(R.id.order_username);
+            order_username.setText(Check_login.usernam);
 
-        listView = (ListView) findViewById(R.id.arrange_list);
-        list = new ArrayList<Map<String, Object>>();
-        layoutlist = new listview_forarrange(ArrangeHomepage.this, list);
-        listView.setAdapter(layoutlist);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ArrangeHomepage.this, OrderDetailwithDelete.class);
-                Bundle bundle = new Bundle();
-                String str=String.valueOf(list.get(position).get("orderid"));
-                bundle.putString("orderid",str);
-                bundle.putString("info",uo.inquireTheTrip(Integer.valueOf(str)));
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+            Button revised_button = (Button) findViewById(R.id.revised_button);
+            revised_button.setOnClickListener(revised_button_listener);
 
-        as=(ImageButton)findViewById(R.id.as);
-        as.setOnClickListener(as_listener);
-        ao=(ImageButton)findViewById(R.id.ao);
-        ao.setOnClickListener(ao_listener);
-        ah=(ImageButton)findViewById(R.id.ah);
-        ah.setOnClickListener(ah_listener);
-        aa=(ImageButton)findViewById(R.id.aa);
-        aa.setOnClickListener(aa_listener);
-        ad=(ImageButton)findViewById(R.id.ad);
-        ad.setOnClickListener(ad_listener);
+            listView = (ListView) findViewById(R.id.arrange_list);
+            list = new ArrayList<Map<String, Object>>();
+            layoutlist = new listview_forarrange(ArrangeHomepage.this, list);
+            listView.setAdapter(layoutlist);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(ArrangeHomepage.this, OrderDetailwithDelete.class);
+                    Bundle bundle = new Bundle();
+                    String str=String.valueOf(list.get(position).get("orderid"));
+                    bundle.putString("orderid",str);
+                    bundle.putString("info",uo.inquireTheTrip(Integer.valueOf(str)));
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
+
+            as=(ImageButton)findViewById(R.id.as);
+            as.setOnClickListener(as_listener);
+            ao=(ImageButton)findViewById(R.id.ao);
+            ao.setOnClickListener(ao_listener);
+            ah=(ImageButton)findViewById(R.id.ah);
+            ah.setOnClickListener(ah_listener);
+            aa=(ImageButton)findViewById(R.id.aa);
+            aa.setOnClickListener(aa_listener);
+            ad=(ImageButton)findViewById(R.id.ad);
+            ad.setOnClickListener(ad_listener);
+        }
+
     }
 
     View.OnClickListener revised_button_listener = new View.OnClickListener() {
@@ -86,10 +106,10 @@ public class ArrangeHomepage extends AppCompatActivity {
             for (int i = 0; i < listsize; i++) {
                 list.remove(0);
             }
+            System.out.println("check 5 "+Check_login.useraccount);
+            String s=Check_login.useraccount;
+            ArrayList<Order> result=uo.inquireOrders(s);
 
-            inputuser = InputUserName.getText().toString();
-            inputphone = InputPhoneNumber.getText().toString();
-            ArrayList<Order> result=uo.inquireOrders(inputuser);
 
             if(result.size()==0){
                 Toast.makeText(ArrangeHomepage.this,"fail",Toast.LENGTH_LONG).show();

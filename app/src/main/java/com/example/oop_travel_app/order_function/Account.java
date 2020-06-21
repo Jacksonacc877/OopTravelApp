@@ -76,24 +76,22 @@ public class Account {
 		return data;
 	}
 	public boolean revise(String userName, String password, String checkedpassword, String userPhone){
+		System.out.println("check userID "+userID);
 		ArrayList<Account> userIDs = fsh.getUserIDs();
 		Account order=new Account();
 		for(Account a:userIDs){
-			if(!password.equals(null)&&!checkedpassword.equals(null)&&password!=checkedpassword) {
-				return false;
+			if (userName.equals(a.getUserID())){
+				order=a;
+				break;
 			}
-			else if(userName.equals(null)) {
-				userName = a.getUserName();
-			}
-			else if(password.equals(null)) {
-				password = a.getPassword();
-			}
-			else if(userPhone.equals(null)) {
-				userPhone = a.getUserPhone();
-			}
-			fsh.modifyAccount(order.getUserID(), order.userName, order.password, order.userPhone);
 		}
-		return true;
+		if (checkedpassword.equals(password)){
+			fsh.modifyAccount(order.getUserID(),userName, password,userPhone);
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 
 }

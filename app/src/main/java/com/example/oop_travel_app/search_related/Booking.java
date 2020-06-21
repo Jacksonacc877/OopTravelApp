@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oop_travel_app.AccountHomepage;
+import com.example.oop_travel_app.Check_login;
 import com.example.oop_travel_app.DevlopHomepage;
 import com.example.oop_travel_app.FirestoreHelper;
 import com.example.oop_travel_app.MainActivity;
@@ -29,9 +30,8 @@ import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 public class Booking extends AppCompatActivity {
     private Spinner adultspinner,childspinner,infantspinner;
-    private TextView tv_id,tv_title,tv_price,tv_date;
-    private EditText ed_username,ed_phone;
-    private String id,Title,startdate,enddate;
+    private TextView tv_id,tv_title,tv_price,tv_date,login_name;
+    private String id,Title,startdate,enddate,username;
     private int price,numOfadult=0,numOfchild=0,numOfinfant=0;
     private ImageButton bs,bo,bh,ba,bd;
     private UserOperation uo;
@@ -57,8 +57,9 @@ public class Booking extends AppCompatActivity {
         tv_date.setText("行程日期 ： "+startdate+"~"+enddate);
 
         tv_price=(TextView)findViewById(R.id.arrange_amount);
-        ed_username=(EditText)findViewById(R.id.arrange_inputusername);
-        ed_phone=(EditText)findViewById(R.id.arrange_inputphone);
+
+        login_name=(TextView)findViewById(R.id.login_name);
+        login_name.setText(Check_login.usernam);
 
 
         final String[] number={"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
@@ -138,18 +139,12 @@ public class Booking extends AppCompatActivity {
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    String user=ed_username.getText().toString();
-                    String phone =ed_phone.getText().toString();
                     int checknum=numOfadult+numOfchild+numOfinfant;
-                    if(user.equals("")  ){
-                        Toast.makeText(Booking.this,"請輸入姓名",Toast.LENGTH_SHORT).show();
-                    }else if(phone.equals("")){
-                        Toast.makeText(Booking.this,"請輸入電話",Toast.LENGTH_SHORT).show();
-                    }else if(checknum==0){
+                    if(checknum==0){
                         Toast.makeText(Booking.this,"請選擇人數",Toast.LENGTH_SHORT).show();
                     }else{
 
-                        Boolean od=uo.bookATrip(new Order(Booking.this,-1,user,Integer.valueOf(id),numOfadult,numOfchild,numOfinfant));
+                        Boolean od=uo.bookATrip(new Order(Booking.this,-1,username,Integer.valueOf(id),numOfadult,numOfchild,numOfinfant));
 
                         if(!od){
                             Toast.makeText(Booking.this,"預定失敗 !",Toast.LENGTH_LONG).show();

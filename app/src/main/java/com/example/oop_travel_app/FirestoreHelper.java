@@ -174,13 +174,15 @@ public class FirestoreHelper {
      * @param phone
      */
     public void modifyAccount(String userID,String name,String password,String phone){
+
         DocumentReference userIDs = db.collection("userIDs").document(userID);
+
         Map<String, Object> info = new HashMap<>();
         info.put("userID",userID);
         info.put("name",name);
         info.put("userName",name);
         info.put("password",password);
-        info.put("phone",phone);
+        info.put("userPhone",phone);
         userIDs.set(info);
     }
 

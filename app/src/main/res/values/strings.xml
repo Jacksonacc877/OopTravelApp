@@ -124,7 +124,7 @@
     <string name="ar_account">帳號 ： </string>
     <string name="ar_name">姓名 ： </string>
     <string name="ar_phone">電話 ： </string>
-    <string name="ar_password">原密碼 ： </string>
-    <string name="ar_repassword">新密碼 ： </string>
+    <string name="ar_password">新密碼 ： </string>
+    <string name="ar_repassword">確認密碼 ： </string>
 
 </resources>

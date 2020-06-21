@@ -69,10 +69,17 @@ public class AccountHomepage extends AppCompatActivity {
                         break;
                     }
                 }
+
+
                 Intent intent=new Intent(AccountHomepage.this,Account_information.class);
 
                 String str_name=acc.getUserName();
                 String str_userID=acc.getUserID();
+
+                Check_login.alreadylogin=1;
+                Check_login.usernam=str_name;
+                Check_login.useraccount=str_account;
+
                 String str_phones=acc.getUserPhone();
                 String str_passwordss=acc.getPassword();
                 System.out.println("Check "+str_name);
