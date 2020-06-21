@@ -115,7 +115,7 @@ public class DataList {
 		String sql = "SELECT DISTINCT tripID,price,startDate,endDate FROM trip "
 				+ "WHERE title Like '" + title + "' "
 				+ "and date(startDate) >= date('"+ startDate +"') "
-				+ "and date(startDate) <= date('"+ endDate +"') ";
+				+ "and date(endDate) <= date('"+ endDate +"') ";
 		if (orderByPrice) sql+=" ORDER BY price ;";
 		else sql+=";";
 		dbo.selectData(sql, 4);

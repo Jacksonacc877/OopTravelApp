@@ -49,7 +49,6 @@ public class UserOperation {
 			if (o.getOrderID()>maxID) maxID=o.getOrderID();
 		}
 		if(upperBound>=(booked+numOfAdult+numOfChild+numOfInfant)){
-
 			fsh.newOrder(order,maxID,booked);
 			System.out.println("order successful");
 			return true ;
@@ -80,10 +79,20 @@ public class UserOperation {
     }
 	
 	public Boolean updateTheTrip(Order oldOne, int changeNumOfAdult, int changeNumOfChild, int changeNumOfInfant) {
+		int booked=0;
 		Order newOne=new Order(context,oldOne.getOrderID(),oldOne.getUserID(),oldOne.getTripID()
 				,changeNumOfAdult,changeNumOfChild,changeNumOfInfant);
-
-		return deleteTheTrip(oldOne.getOrderID())&&bookATrip(newOne);
+		dbo.selectData("select upperBound from trip where tripID = '" + oldOne.getTripID() + "'", 1);
+		int upperBound=Integer.valueOf((dbo.getResultSet())[0]);
+		if(upperBound>=(booked+changeNumOfAdult+changeNumOfChild+changeNumOfInfant)){
+			deleteTheTrip(oldOne.getOrderID());
+			bookATrip(newOne);
+			System.out.println("order successful");
+			return true ;
+		}else{
+			System.out.println("Invalid order ");
+			return false;
+		}
 	}
 
 

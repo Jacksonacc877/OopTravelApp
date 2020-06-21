@@ -41,6 +41,7 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         int region_number=Integer.parseInt(s);
         DataList dl=new DataList(Trip_DetailwithBooking.this);
         String[]  info= dl.getTripData(region_number,bookedTraveler);
+        System.out.println("test"+info[0]+"test"+info[1]+"test"+info[2]);
         id=info[0];
         title=info[1];
         String Price=info[2];
@@ -99,8 +100,14 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
             int staryear=Integer.valueOf(splitstartdate[0]);
             int starmonth=Integer.valueOf(splitstartdate[1]);
             int starday=Integer.valueOf(splitstartdate[2]);
-            if(curyear>staryear || curmonth>starmonth ||curday>starday){
+            if(curyear>staryear){
                 okdate=false;
+                if(curyear==staryear&&curmonth>starmonth){
+                    okdate=false;
+                    if(curyear==staryear&&curmonth==starmonth&&curday>starday){
+                        okdate=false;
+                    }
+                }
             }
             if(okdate){
                 Intent intent = new Intent(Trip_DetailwithBooking.this, Booking.class);
