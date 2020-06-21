@@ -117,7 +117,7 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/account" />
 
         <ImageButton
             android:id="@+id/sd"
@@ -126,7 +126,7 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/develope" />
 
     </LinearLayout>
 

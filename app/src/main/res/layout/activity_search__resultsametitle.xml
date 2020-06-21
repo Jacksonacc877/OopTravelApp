@@ -152,7 +152,7 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/account" />
 
         <ImageButton
             android:id="@+id/srd"
@@ -161,6 +161,6 @@
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/develope" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
