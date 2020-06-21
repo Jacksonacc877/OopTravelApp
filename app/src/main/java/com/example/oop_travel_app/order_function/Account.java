@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class Account {
 
-
 	public String getUserID() {
 		return userID;
 	}
@@ -38,6 +37,13 @@ public class Account {
 		fsh.userInit();
 	}
 
+	public Account(String userID,String userName,String userPhone,String password){
+		this.userID=userID;
+		this.userName=userName;
+		this.userPhone=userPhone;
+		this.password=password;
+	}
+
 
 
 	public boolean register(String ID, String userName, String password, String userPhone){
@@ -54,8 +60,7 @@ public class Account {
 	}
 	public boolean login(String ID, String password) {
 		ArrayList<Account> userIDs = fsh.getUserIDs();
-//		System.out.println(fsh.getUserIDs());
-//		Account order=new Account();
+
 
 		for(Account a:userIDs){
 			System.out.println(a.getUserID()+"/00/"+ID);
