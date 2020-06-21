@@ -111,7 +111,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="400dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +121,7 @@
         <ImageButton
             android:id="@+id/srs"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -130,7 +130,7 @@
         <ImageButton
             android:id="@+id/sro"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -139,7 +139,7 @@
         <ImageButton
             android:id="@+id/srh"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -148,7 +148,7 @@
         <ImageButton
             android:id="@+id/sra"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -157,7 +157,7 @@
         <ImageButton
             android:id="@+id/srd"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"

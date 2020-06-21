@@ -92,7 +92,7 @@
 
     <LinearLayout
         android:layout_width="400dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,7 @@
         <ImageButton
             android:id="@+id/ais"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -111,7 +111,7 @@
         <ImageButton
             android:id="@+id/aio"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -120,7 +120,7 @@
         <ImageButton
             android:id="@+id/aih"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -129,7 +129,7 @@
         <ImageButton
             android:id="@+id/aia"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
@@ -138,7 +138,7 @@
         <ImageButton
             android:id="@+id/aid"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
