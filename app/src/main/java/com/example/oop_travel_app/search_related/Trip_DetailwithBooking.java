@@ -41,6 +41,7 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         int region_number=Integer.parseInt(s);
         DataList dl=new DataList(Trip_DetailwithBooking.this);
         String[]  info= dl.getTripData(region_number,bookedTraveler);
+        System.out.println("test"+info[0]+"test"+info[1]+"test"+info[2]);
         id=info[0];
         title=info[1];
         String Price=info[2];

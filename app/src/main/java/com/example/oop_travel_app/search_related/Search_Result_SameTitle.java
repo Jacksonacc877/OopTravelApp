@@ -190,7 +190,10 @@ public class Search_Result_SameTitle extends AppCompatActivity {
     View.OnClickListener searchButtonListener =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            int listsize = list.size();
+            for ( int i=0;i<listsize;i++) {
+                list.remove(0);
+            }
             start_dates=Start_date.getText().toString();
             end_dates= End_date.getText().toString();
             if(start_dates.equals("")&&end_dates.equals("")){
