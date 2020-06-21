@@ -17,11 +17,16 @@ import android.widget.Toast;
 import com.example.oop_travel_app.devlop_function.listview_dev_account;
 import com.example.oop_travel_app.devlop_function.listview_dev_order;
 import com.example.oop_travel_app.devlop_function.listview_dev_trip;
+import com.example.oop_travel_app.order_function.Account;
+import com.example.oop_travel_app.order_function.Order;
 import com.example.oop_travel_app.order_related.ArrangeHomepage;
 import com.example.oop_travel_app.search_related.SearchHomepage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class DevlopHomepage extends AppCompatActivity {
     private ImageButton dhs,dho,dhh,dha,dhd;
@@ -32,12 +37,17 @@ public class DevlopHomepage extends AppCompatActivity {
     private Button dev_bt;
     private int devcheckin=0;
     private EditText dev_etaccount,dev_etpassword;
+    FirestoreHelper fh;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devlop_homepage);
+        fh=new FirestoreHelper();
+        fh.userInit();
+        fh.orderInit();
+        fh.tripInit();
 
         listView=(ListView)findViewById(R.id.dev_listview);
         list=new ArrayList<Map<String,Object>>();
@@ -97,15 +107,58 @@ public class DevlopHomepage extends AppCompatActivity {
                 switch (checkedId){
                     case R.id.dev_controltrip :
                         listview_dev_trip ldt=new listview_dev_trip(DevlopHomepage.this,list);
+                        Set<String> set = fh.getTripIDs().keySet();
+                        Iterator<String> it = set.iterator();
+                        while (it.hasNext()) {
+                            String key = it.next();
+                        }
+                        for (Map.Entry<String, Object> entry : fh.getTripIDs().entrySet()) {
+                            HashMap<String,Object> item = new HashMap<String,Object>();
+                            item.put("tripid",entry.getKey());
+                            System.out.println("check can get value of tripid"+entry.getKey());
+                            item.put("bookedtraveler",entry.getValue());
+                            list.add(item);
+                        }
+                        ldt.notifyDataSetChanged();
                         listView.setAdapter(ldt);
+                        if (list.size() == 0) {
+                            Toast.makeText(DevlopHomepage.this, "No data !", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case R.id.dev_controlorder :
                         listview_dev_order ldo=new listview_dev_order(DevlopHomepage.this,list);
+                        System.out.println("check order"+fh.mOrders.size());
+                        for(Order o : fh.mOrders){
+                            HashMap<String,Object> item = new HashMap<String,Object>();
+                            item.put("orderid",o.getOrderID());
+                            System.out.println("check can get value of orderid"+o.getOrderID());
+                            item.put("userid",o.getUserID());
+                            System.out.println("check can get value of userid"+o.getUserID());
+                            item.put("tripid",o.getTripID());
+                            list.add(item);
+                        }
+
+                        ldo.notifyDataSetChanged();
                         listView.setAdapter(ldo);
+                        if (list.size() == 0) {
+                            Toast.makeText(DevlopHomepage.this, "No data !", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case R.id.dev_controlaccount :
                         listview_dev_account lda=new listview_dev_account(DevlopHomepage.this,list);
+                        for(Account o : fh.getUserIDs()){
+                            HashMap<String,Object> item = new HashMap<String,Object>();
+                            item.put("setaccount",o.getUserID());
+                            item.put("setusername",o.getUserName());
+                            item.put("setphone",o.getUserPhone());
+                            item.put("setpassword",o.getPassword());
+                            list.add(item);
+                        }
+                        lda.notifyDataSetChanged();
                         listView.setAdapter(lda);
+                        if (list.size() == 0) {
+                            Toast.makeText(DevlopHomepage.this, "No data !", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
             }

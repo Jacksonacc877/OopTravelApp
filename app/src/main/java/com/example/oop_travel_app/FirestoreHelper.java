@@ -30,6 +30,7 @@ public class FirestoreHelper {
     public FirestoreHelper(){
         userIDs=new ArrayList();
         tripIDs=new HashMap<String, Object>();
+        mOrders=new ArrayList();
     }
 
     public Map<String, Object> getTripIDs() { return tripIDs; }

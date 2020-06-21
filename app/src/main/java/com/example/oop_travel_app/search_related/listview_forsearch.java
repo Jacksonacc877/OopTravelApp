@@ -37,7 +37,7 @@ public class listview_forsearch extends BaseAdapter {
         Object obj=list.get(position);
         return list.indexOf(obj);
     }
-    private static class ViewHolder{
+    public static class ViewHolder{
         TextView triptitle;
         TextView priceinterval;
         TextView dateinterval;
