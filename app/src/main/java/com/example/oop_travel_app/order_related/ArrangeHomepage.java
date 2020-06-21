@@ -19,12 +19,9 @@ import android.widget.Toast;
 import com.example.oop_travel_app.AccountHomepage;
 import com.example.oop_travel_app.Check_login;
 import com.example.oop_travel_app.DevlopHomepage;
-import com.example.oop_travel_app.FirestoreHelper;
+
 import com.example.oop_travel_app.MainActivity;
-import com.example.oop_travel_app.database_function.DBOperation;
-import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.order_function.Order;
-import com.example.oop_travel_app.order_function.OrderCmdException;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_function.UserOperation;
 import com.example.oop_travel_app.search_related.SearchHomepage;
@@ -106,8 +103,8 @@ public class ArrangeHomepage extends AppCompatActivity {
             for (int i = 0; i < listsize; i++) {
                 list.remove(0);
             }
-            System.out.println("check 5 "+Check_login.useraccount);
-            String s=Check_login.useraccount;
+            System.out.println("check 5 "+Check_login.usernam);
+            String s=Check_login.usernam;
             ArrayList<Order> result=uo.inquireOrders(s);
 
             if(result.size()==0){

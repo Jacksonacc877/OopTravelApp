@@ -79,19 +79,22 @@ public class UserOperation {
 	
 	public Boolean updateTheTrip(Order oldOne, int changeNumOfAdult, int changeNumOfChild, int changeNumOfInfant) {
 		int booked=0;
+		int maxID=-1;
 		for (Order o:fsh.mOrders){
 			if (o.getTripID()==oldOne.getTripID())booked+=o.getNumOfAdult()+o.getNumOfInfant()+o.getNumOfChild();
+			if (o.getOrderID()>maxID) maxID=o.getOrderID();
 		}
+		booked=booked-(oldOne.getNumOfChild()+oldOne.getNumOfInfant()+oldOne.getNumOfAdult());
 		Order newOne=new Order(context,oldOne.getOrderID(),oldOne.getUserID(),oldOne.getTripID()
 				,changeNumOfAdult,changeNumOfChild,changeNumOfInfant);
 		dbo.selectData("select upperBound from trip where tripID = '" + oldOne.getTripID() + "'", 1);
 		int upperBound=Integer.valueOf((dbo.getResultSet())[0]);
 		if(upperBound>=(booked+changeNumOfAdult+changeNumOfChild+changeNumOfInfant)){
 			deleteTheTrip(oldOne.getOrderID());
-			bookATrip(newOne);
+			fsh.newOrder(newOne,maxID,booked);
+//			bookATrip(newOne);
 			return true ;
 		}else{
-			System.out.println("Invalid order ");
 			operatinonState = "修改後的人數超過上限";
 			return false;
 		}
