@@ -7,7 +7,120 @@
     android:background="@drawable/background4"
     tools:context=".DevlopHomepage">
 
+    <TextView
+        android:id="@+id/dev_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:text="@string/dev_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dev_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="29dp"
+        android:text="@string/dev_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dev_title" />
+
+    <EditText
+        android:id="@+id/dev_etaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/dev_account"
+        app:layout_constraintTop_toBottomOf="@+id/dev_title" />
+
+    <TextView
+        android:id="@+id/dev_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/dev_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dev_etaccount" />
+
+    <EditText
+        android:id="@+id/dev_etpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toEndOf="@+id/dev_password"
+        app:layout_constraintTop_toBottomOf="@+id/dev_etaccount" />
+
+    <Button
+        android:id="@+id/dev_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/dev_bt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dev_etpassword" />
+
+    <RadioGroup
+        android:id="@+id/radioregion"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/dev_login"
+        app:layout_constraintTop_toBottomOf="@+id/dev_etpassword">
+
+        <RadioButton
+            android:id="@+id/dev_controltrip"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:text="@string/dev_controltrip" />
+
+        <RadioButton
+            android:id="@+id/dev_controlorder"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/dev_controlorder" />
+
+        <RadioButton
+            android:id="@+id/dev_controlaccount"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/dev_controlaccount" />
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/dev_listview"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioregion" />
+
     <LinearLayout
+        android:id="@+id/linearLayout8"
         android:layout_width="400dp"
         android:layout_height="40dp"
         android:orientation="horizontal"

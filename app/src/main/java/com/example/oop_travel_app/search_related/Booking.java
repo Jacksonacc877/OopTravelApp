@@ -144,7 +144,7 @@ public class Booking extends AppCompatActivity {
                         Toast.makeText(Booking.this,"請選擇人數",Toast.LENGTH_SHORT).show();
                     }else{
 
-                        Boolean od=uo.bookATrip(new Order(Booking.this,-1,username,Integer.valueOf(id),numOfadult,numOfchild,numOfinfant));
+                        Boolean od=uo.bookATrip(new Order(Booking.this,-1,Check_login.usernam,Integer.valueOf(id),numOfadult,numOfchild,numOfinfant));
 
                         if(!od){
                             Toast.makeText(Booking.this,"剩餘數量不足 !",Toast.LENGTH_LONG).show();

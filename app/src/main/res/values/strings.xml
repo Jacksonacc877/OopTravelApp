@@ -127,4 +127,14 @@
     <string name="ar_password">新密碼 ： </string>
     <string name="ar_repassword">確認密碼 ： </string>
 
+    <!-- 開發人員畫面  -->
+    <string name="dev_title">開發人員選項</string>
+    <string name="dev_account">開發者帳號 ： </string>
+    <string name="dev_password">開發者密碼 ： </string>
+    <string name="dev_bt">登入</string>
+    <string name="dev_controltrip">行程</string>
+    <string name="dev_controlorder">訂單</string>
+    <string name="dev_controlaccount">帳戶</string>
+
+
 </resources>
