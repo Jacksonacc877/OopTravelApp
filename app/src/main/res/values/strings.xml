@@ -137,4 +137,19 @@
     <string name="dev_controlaccount">帳戶</string>
 
 
+    <!-- dev listview trip layout -->
+    <string name="dev_list_tripid">行程編號 : </string>
+    <string name="dev_list_booknum">預定人數 : </string>
+
+    <!-- dev listview order layout -->
+    <string name="dev_listorder_orderid">訂單編號 : </string>
+    <string name="dev_listorder_userid">預定帳號 : </string>
+    <string name="dev_listorder_tripid">行程編號 : </string>
+
+    <!-- dev listview account layout -->
+    <string name="dev_listact_account">帳號名稱 : </string>
+    <string name="dev_listact_username">註冊姓名 : </string>
+    <string name="dev_listact_phone">聯絡電話 : </string>
+    <string name="dev_listact_password">登入密碼 : </string>
+
 </resources>
