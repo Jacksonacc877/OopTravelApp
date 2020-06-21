@@ -54,13 +54,15 @@ public class Revised extends AppCompatActivity {
         String getadult=str[4];
         adultnum=(TextView)findViewById(R.id.inrevised_adultnum);
         adultnum.setText("成人人數 ： "+getadult);
+        numOfadult=Integer.valueOf(getadult);
         String getchild=str[5];
         childnum=(TextView)findViewById(R.id.inrevised_childnum);
         childnum.setText("小孩人數 ： "+getchild);
+        numOfchild=Integer.valueOf(getchild);
         String getinfant=str[6];
         infantnum=(TextView)findViewById(R.id.inrevised_infantnum);
         infantnum.setText("嬰兒人數 ： "+getinfant);
-
+        numOfinfant=Integer.valueOf(getinfant);
         String prices=str[12];
         price_before=(TextView)findViewById(R.id.inrevised_pricebefore);
         price_before.setText("訂單總價 ： "+prices);
@@ -77,12 +79,15 @@ public class Revised extends AppCompatActivity {
         ArrayAdapter<String> numberadapter =new ArrayAdapter<>(Revised.this,android.R.layout.simple_spinner_dropdown_item,number);
         adultspinner=(Spinner)findViewById(R.id.inrevisd_adultspinner);
         adultspinner.setAdapter(numberadapter);
+        adultspinner.setSelection(numOfadult);
         adultspinner.setOnItemSelectedListener(adultlistener);
         childspinner=(Spinner)findViewById(R.id.inrevised_childspinner);
         childspinner.setAdapter(numberadapter);
+        childspinner.setSelection(numOfchild);
         childspinner.setOnItemSelectedListener(childlistener);
         infantspinner=(Spinner)findViewById(R.id.inrevised_infantspinner);
         infantspinner.setAdapter(numberadapter);
+        infantspinner.setSelection(numOfinfant);
         infantspinner.setOnItemSelectedListener(infantlistener);
 
         rs=(ImageButton)findViewById(R.id.rs);
