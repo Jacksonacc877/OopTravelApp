@@ -27,7 +27,6 @@ public class Account_revised extends AppCompatActivity {
         Bundle bundle=this.getIntent().getExtras();
         str_userID=bundle.getString("str_userID");
         str_name =bundle.getString("str_name");
-        System.out.println(str_name);
         str_phones=bundle.getString("str_phones");
 
         ar_account_fix=(TextView)findViewById(R.id.ar_account_fix);
