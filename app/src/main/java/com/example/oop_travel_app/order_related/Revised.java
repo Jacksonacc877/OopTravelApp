@@ -106,7 +106,11 @@ public class Revised extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             boolean op=Uo.updateTheTrip(oldOne,numOfadult,numOfchild,numOfinfant);
-            if (op)Toast.makeText(Revised.this,"修改成功",Toast.LENGTH_LONG).show();
+            if (op){
+                Toast.makeText(Revised.this,"修改成功",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(Revised.this,ArrangeHomepage.class);
+                startActivity(intent);
+            }
             else Toast.makeText(Revised.this,Uo.getOperatinonState(),Toast.LENGTH_LONG).show();
         }
     };

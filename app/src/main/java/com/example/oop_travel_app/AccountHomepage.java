@@ -29,27 +29,35 @@ public class AccountHomepage extends AppCompatActivity {
         fsh.userInit();
         acc=new Account("");
 
+        if(Check_login.alreadylogin==1){
+            Intent intent =new Intent(AccountHomepage.this,Account_information.class);
+            Bundle bundle=new Bundle();
+            bundle.putString("str_phones",Check_login.pphone);
+            bundle.putString("str_name",Check_login.usernam);
+            bundle.putString("str_userID",Check_login.useraccount);
+            bundle.putString("str_passwordss",Check_login.ppassword);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }else{
+            accounts=(EditText)findViewById(R.id.account_et1);
+            passwords=(EditText)findViewById(R.id.account_et2);
+            login=(Button)findViewById(R.id.account_bt1);
+            login.setOnClickListener(login_listener);
+            regis=(Button)findViewById(R.id.account_bt2);
+            regis.setOnClickListener(regis_listener);
 
+            ahs=(ImageButton)findViewById(R.id.ahs);
+            ahs.setOnClickListener(ahs_listener);
+            aho=(ImageButton)findViewById(R.id.aho);
+            aho.setOnClickListener(aho_listener);
+            ahh=(ImageButton)findViewById(R.id.ahh);
+            ahh.setOnClickListener(ahh_listener);
+            aha=(ImageButton)findViewById(R.id.aha);
+            aha.setOnClickListener(aha_listener);
+            ahd=(ImageButton)findViewById(R.id.ahd);
+            ahd.setOnClickListener(ahd_listener);
+        }
 
-
-
-        accounts=(EditText)findViewById(R.id.account_et1);
-        passwords=(EditText)findViewById(R.id.account_et2);
-        login=(Button)findViewById(R.id.account_bt1);
-        login.setOnClickListener(login_listener);
-        regis=(Button)findViewById(R.id.account_bt2);
-        regis.setOnClickListener(regis_listener);
-
-        ahs=(ImageButton)findViewById(R.id.ahs);
-        ahs.setOnClickListener(ahs_listener);
-        aho=(ImageButton)findViewById(R.id.aho);
-        aho.setOnClickListener(aho_listener);
-        ahh=(ImageButton)findViewById(R.id.ahh);
-        ahh.setOnClickListener(ahh_listener);
-        aha=(ImageButton)findViewById(R.id.aha);
-        aha.setOnClickListener(aha_listener);
-        ahd=(ImageButton)findViewById(R.id.ahd);
-        ahd.setOnClickListener(ahd_listener);
 
     }
 
@@ -79,6 +87,8 @@ public class AccountHomepage extends AppCompatActivity {
                 Check_login.alreadylogin=1;
                 Check_login.usernam=str_name;
                 Check_login.useraccount=str_account;
+                Check_login.ppassword=str_password;
+                Check_login.pphone=acc.getUserPhone();
 
                 String str_phones=acc.getUserPhone();
                 String str_passwordss=acc.getPassword();

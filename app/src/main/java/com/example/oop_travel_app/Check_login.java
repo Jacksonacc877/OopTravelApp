@@ -6,4 +6,7 @@ public class Check_login {
     public static String usernam="";
     public static String useraccount="";
 
+    public static String pphone="";
+    public static String ppassword="";
+
 }

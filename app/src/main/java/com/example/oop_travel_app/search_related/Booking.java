@@ -150,6 +150,8 @@ public class Booking extends AppCompatActivity {
                             Toast.makeText(Booking.this,"剩餘數量不足 !",Toast.LENGTH_LONG).show();
                         }else{
                             Toast.makeText(Booking.this,"預定成功 !",Toast.LENGTH_LONG).show();
+                            Intent intent=new Intent(Booking.this,ArrangeHomepage.class);
+                            startActivity(intent);
                         }
                     }
                 }

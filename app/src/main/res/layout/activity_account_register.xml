@@ -146,7 +146,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/ars"
+            android:id="@+id/ards"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_weight="0"
@@ -155,7 +155,7 @@
             app:srcCompat="@drawable/search" />
 
         <ImageButton
-            android:id="@+id/aro"
+            android:id="@+id/ardo"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_weight="0"
@@ -164,7 +164,7 @@
             app:srcCompat="@drawable/order" />
 
         <ImageButton
-            android:id="@+id/arh"
+            android:id="@+id/ardh"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_weight="0"
@@ -173,7 +173,7 @@
             app:srcCompat="@drawable/home" />
 
         <ImageButton
-            android:id="@+id/ara"
+            android:id="@+id/arda"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_weight="0"
@@ -182,7 +182,7 @@
             app:srcCompat="@drawable/account" />
 
         <ImageButton
-            android:id="@+id/ard"
+            android:id="@+id/ardd"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_weight="0"
