@@ -11,10 +11,11 @@
         android:id="@+id/reviseddetail_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="69dp"
         android:text="@string/revised_detail_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="40dp"
         android:text="@string/revised_detail_tripname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reviseddetail_info" />
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/reviseddetali_tripname"
         app:layout_constraintTop_toBottomOf="@+id/reviseddetail_info" />
@@ -46,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="@string/revised_detail_username"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tripname" />
@@ -57,32 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/reviseddetail_username"
         app:layout_constraintTop_toBottomOf="@+id/tripname" />
-
-    <TextView
-        android:id="@+id/reviseddetail_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="26dp"
-        android:text="@string/revised_detail_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userid" />
-
-    <TextView
-        android:id="@+id/userphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="26dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/reviseddetail_phone"
-        app:layout_constraintTop_toBottomOf="@+id/userid" />
 
     <TextView
         android:id="@+id/reviseddetail_date"
@@ -90,10 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/revised_detail_date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userphone" />
+        app:layout_constraintTop_toBottomOf="@+id/reviseddetail_username" />
 
     <TextView
         android:id="@+id/tripdate"
@@ -101,10 +80,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/reviseddetail_date"
-        app:layout_constraintTop_toBottomOf="@+id/userphone" />
+        app:layout_constraintTop_toBottomOf="@+id/userid" />
 
     <TextView
         android:id="@+id/reviseddetail_passengerinfo"
@@ -112,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="40dp"
         android:text="@string/revised_detail_passengerinfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tripdate" />
@@ -123,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/reviseddetail_passengerinfo"
         app:layout_constraintTop_toBottomOf="@+id/tripdate" />
@@ -134,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="40dp"
         android:text="@string/revised_detail_totalmoney"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passengerinfo" />
@@ -145,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/reviseddetail_totalmoney"
         app:layout_constraintTop_toBottomOf="@+id/passengerinfo" />
@@ -154,7 +133,7 @@
         android:id="@+id/gorevised_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="60dp"
         android:text="@string/gorevised_button"
         app:layout_constraintEnd_toStartOf="@+id/godelete_button"
         app:layout_constraintHorizontal_bias="0.5"
@@ -165,7 +144,9 @@
         android:id="@+id/godelete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:text="@string/godelete_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -11,91 +11,145 @@
         android:id="@+id/regis_repassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="36dp"
+=======
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         android:text="@string/regis_repassword"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_password" />
-
-    <TextView
-        android:id="@+id/regis_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/regis_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_et_name" />
 
     <TextView
         android:id="@+id/regis_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
         android:text="@string/regis_password"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_etphone" />
+        app:layout_constraintTop_toBottomOf="@+id/regis_phone" />
+
+    <TextView
+        android:id="@+id/regis_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/regis_phone"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regis_name" />
 
     <TextView
         android:id="@+id/regis_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
+=======
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+
+        android:layout_marginTop="60dp"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         android:text="@string/regis_name"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_et_account" />
+        app:layout_constraintTop_toBottomOf="@+id/regis_account" />
+
 
     <TextView
         android:id="@+id/regis_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
         android:text="@string/regis_account"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
 
     <EditText
         android:id="@+id/regis_et_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="104dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/regis_account"
+=======
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/regis_et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/regis_name"
+=======
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         app:layout_constraintTop_toBottomOf="@+id/regis_et_account" />
 
     <EditText
         android:id="@+id/regis_etphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
+=======
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="18sp"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         app:layout_constraintStart_toEndOf="@+id/regis_phone"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_name" />
 
@@ -103,11 +157,18 @@
         android:id="@+id/regis_et_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="16dp"
+=======
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         android:ems="10"
         android:inputType="textPassword"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/regis_password"
         app:layout_constraintTop_toBottomOf="@+id/regis_etphone" />
 
@@ -115,11 +176,18 @@
         android:id="@+id/regis_et_repassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+=======
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="48dp"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         android:ems="10"
         android:inputType="textPassword"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/regis_repassword"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_password" />
 
@@ -127,10 +195,15 @@
         android:id="@+id/regis_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="68dp"
         android:text="@string/regis_bt"
+=======
+        android:layout_marginTop="52dp"
+        android:text="Button"
+>>>>>>> c25db538399b0d372e10e1515bd05f0f408911eb
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_et_repassword" />
 
@@ -188,4 +261,5 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/develope" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

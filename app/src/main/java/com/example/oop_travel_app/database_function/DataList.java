@@ -231,5 +231,14 @@ public class DataList {
 		else interval= sdf.format(earliest) +"~"+ sdf.format(latest);
 		return interval;
 	}
-
+	public String findRegion(String title) {
+		String sql = "SELECT DISTINCT travelCode FROM trip WHERE title Like '" + title + "';";
+		dbo.selectData(sql, 1);
+		String travelCode = dbo.getResultSet()[0];
+		System.out.println(travelCode);
+		sql = "SELECT DISTINCT country FROM travel_code WHERE travelCode = '" + travelCode + "';";
+		dbo.selectData(sql, 1);
+		String region = dbo.getResultSet()[0];
+		return region;
+	}
 }

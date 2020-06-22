@@ -109,6 +109,12 @@ public class UserOperation {
 				break;
 			}
 		}
+		Account acc=new Account();
+		for (Account a:fsh.getUserIDs()){
+			if ((a.getUserID()).contentEquals(order.getUserID())) acc=a;
+		}
+		System.out.println("Check usID "+acc.getUserName());
+
 		String output= "";
 		if(order.getTripID()>0){
 			output="sucesss"+","+
@@ -120,7 +126,7 @@ public class UserOperation {
 					order.getNumOfInfant()+","+
 					order.getTripInfo().get(0)+","+			//7 title
 					order.getTripInfo().get(1)+","+			//8 price
-					"0987654321"+","+						//9 phone
+					","+						//9 phone
 					order.getTripInfo().get(2)+" ~ "+order.getTripInfo().get(3)+"," +		//10 date
 					" 成人" + order.getNumOfAdult()+"位" + "  孩童" + order.getNumOfChild()+"位" + "  嬰兒" + order.getNumOfInfant()+"位"+","+//11 people
 					Integer.valueOf(order.getTripInfo().get(1))*

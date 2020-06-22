@@ -21,6 +21,7 @@ import com.example.oop_travel_app.Check_login;
 import com.example.oop_travel_app.DevlopHomepage;
 
 import com.example.oop_travel_app.MainActivity;
+import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.order_function.Order;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_function.UserOperation;
@@ -114,7 +115,7 @@ public class ArrangeHomepage extends AppCompatActivity {
                     HashMap<String, Object> item = new HashMap<String, Object>();
                     int num = result.get(i).getNumOfAdult() + result.get(i).getNumOfChild() + result.get(i).getNumOfInfant();
                     String amount = String.valueOf(num);
-                    item.put("tripregion", result.get(i).getTripInfo().get(0));
+                    item.put("tripregion", new DataList(ArrangeHomepage.this).findRegion(result.get(i).getTripInfo().get(0)));
                     item.put("tripprice", result.get(i).getTripInfo().get(1));
                     item.put("tripdate",  result.get(i).getTripInfo().get(2) + " ~ " +  result.get(i).getTripInfo().get(3));
                     item.put("tripamountpeople", amount);
