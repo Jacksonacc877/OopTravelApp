@@ -93,6 +93,8 @@ public class OrderDetailwithDelete extends AppCompatActivity {
 
                     Boolean d=Uo2.deleteTheTrip(orderid);
                     Toast.makeText(OrderDetailwithDelete.this,"退訂成功,已取消您的預訂紀錄",Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(OrderDetailwithDelete.this,ArrangeHomepage.class);
+                    startActivity(intent);
                 }
             });
             builder.setNegativeButton("取消",null);

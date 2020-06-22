@@ -16,8 +16,6 @@ import com.example.oop_travel_app.order_function.Account;
 import com.example.oop_travel_app.order_related.ArrangeHomepage;
 import com.example.oop_travel_app.search_related.SearchHomepage;
 
-import javax.microedition.khronos.egl.EGLDisplay;
-
 public class Account_register extends AppCompatActivity {
     private EditText account,name,phoness,password,repassword;
     private Button regis_bt;
@@ -38,15 +36,15 @@ public class Account_register extends AppCompatActivity {
         regis_bt=(Button)findViewById(R.id.regis_bt);
         regis_bt.setOnClickListener(regis_bt_listener);
 
-        ars=(ImageButton)findViewById(R.id.ars);
+        ars=(ImageButton)findViewById(R.id.ards);
         ars.setOnClickListener(ars_listener);
-        aro=(ImageButton)findViewById(R.id.aro);
+        aro=(ImageButton)findViewById(R.id.ardo);
         aro.setOnClickListener(aro_listener);
-        arh=(ImageButton)findViewById(R.id.arh);
+        arh=(ImageButton)findViewById(R.id.ardh);
         arh.setOnClickListener(arh_listener);
-        ara=(ImageButton)findViewById(R.id.ara);
+        ara=(ImageButton)findViewById(R.id.arda);
         ara.setOnClickListener(ara_listener);
-        ard=(ImageButton)findViewById(R.id.ard);
+        ard=(ImageButton)findViewById(R.id.ardd);
         ard.setOnClickListener(ard_listener);
 
     }
