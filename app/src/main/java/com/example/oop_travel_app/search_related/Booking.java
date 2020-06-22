@@ -30,7 +30,7 @@ import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
 public class Booking extends AppCompatActivity {
     private Spinner adultspinner,childspinner,infantspinner;
-    private TextView tv_id,tv_title,tv_price,tv_date,login_name;
+    private TextView tv_id,tv_title,tv_price,login_name;
     private String id,Title,startdate,enddate,username;
     private int price,numOfadult=0,numOfchild=0,numOfinfant=0;
     private ImageButton bs,bo,bh,ba,bd;
@@ -51,10 +51,8 @@ public class Booking extends AppCompatActivity {
         Title=bundle.getString("Title");
         tv_title.setText(Title);
         price=Integer.parseInt(bundle.getString("Price").toString());
-        tv_date=(TextView)findViewById(R.id.arrange_date);
         startdate=bundle.getString("StartDate");
         enddate=bundle.getString("EndDate");
-        tv_date.setText("行程日期 ： "+startdate+"~"+enddate);
 
         tv_price=(TextView)findViewById(R.id.arrange_amount);
 

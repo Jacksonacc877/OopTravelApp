@@ -48,9 +48,9 @@ public class Revised extends AppCompatActivity {
         String username=str[2];
         inrevisd_user=(TextView)findViewById(R.id.inrevised_user);
         inrevisd_user.setText("訂單人 ： "+username);
-        String phonenumber=str[9];
-        inrevised_phone=(TextView)findViewById(R.id.inrevised_phone);
-        inrevised_phone.setText("電話 ： "+phonenumber);
+//        String phonenumber=str[9];
+//        inrevised_phone=(TextView)findViewById(R.id.inrevised_phone);
+//        inrevised_phone.setText("電話 ： "+phonenumber);
         String getadult=str[4];
         adultnum=(TextView)findViewById(R.id.inrevised_adultnum);
         adultnum.setText("成人人數 ： "+getadult);

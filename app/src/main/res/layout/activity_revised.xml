@@ -30,37 +30,26 @@
         app:layout_constraintTop_toBottomOf="@+id/inrevised_title" />
 
     <TextView
-        android:id="@+id/inrevised_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="87dp"
-        android:layout_marginLeft="87dp"
-        android:layout_marginTop="25dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_user" />
-
-    <TextView
         android:id="@+id/inrevised_before"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="50dp"
         android:text="@string/revised_before"
         app:layout_constraintEnd_toStartOf="@+id/inrevised_after"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_user" />
 
     <TextView
         android:id="@+id/inrevised_after"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="50dp"
         android:text="@string/revised_after"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/inrevised_before"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_user" />
 
     <TextView
         android:id="@+id/inrevised_adultnum"
