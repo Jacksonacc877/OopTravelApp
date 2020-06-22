@@ -34,17 +34,21 @@
         app:layout_constraintTop_toBottomOf="@+id/detail_title">
 
         <TextView
+            android:id="@+id/search_result_tripname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/search_result_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/search_result_info"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/search_result_tripname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
             android:textSize="20sp" />
 
         <TextView

@@ -49,6 +49,7 @@ public class listview_forsearch extends BaseAdapter {
             convertView= LayoutInflater.from(context).inflate(R.layout.listview_forsearch, parent,false);
             holder =new ViewHolder();
             holder.triptitle=(TextView)convertView.findViewById(R.id.search_initialresult);
+            holder.triptitle.setSelected(true);
             holder.priceinterval=(TextView)convertView.findViewById(R.id.actual_price);
             holder.dateinterval=(TextView)convertView.findViewById(R.id.actual_date);
 
