@@ -162,7 +162,7 @@ public class FirestoreHelper {
         info.put("userID",userID);
         info.put("userName",name);
         info.put("password",password);
-        info.put("phone",phone);
+        info.put("userPhone",phone);
         userIDs.set(info);
     }
 
