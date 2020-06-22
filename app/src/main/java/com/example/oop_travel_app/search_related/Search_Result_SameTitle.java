@@ -52,6 +52,7 @@ public class Search_Result_SameTitle extends AppCompatActivity {
 
         TextView SRListdate = (TextView)findViewById(R.id.trip_region_Userin);
         SRListdate.setText(region_User_input);
+        SRListdate.setSelected(true);
 
 
         fsh=new FirestoreHelper();

@@ -58,7 +58,8 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
         TextView ID = (TextView)findViewById(R.id.search_result_id);
         ID.setText("ID : "+id);
         TextView tripname = (TextView)findViewById(R.id.search_result_tripname);
-        tripname.setText("行程名稱 : "+title);
+        tripname.setText(title);
+        tripname.setSelected(true);
         TextView price = (TextView)findViewById(R.id.search_result_price);
         price.setText("價錢 : "+Price);
         TextView startdate = (TextView)findViewById(R.id.search_result_startdate);
