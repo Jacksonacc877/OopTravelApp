@@ -112,6 +112,7 @@
     <string name="regis_password">密碼</string>
     <string name="regis_repassword">確認密碼</string>
     <string name="regis_phone">電話</string>
+    <string name="regis_bt">註冊</string>
 
     <!-- 帳號登入畫面 -->
     <string name="ai_bt">修改帳戶資訊</string>
@@ -126,6 +127,7 @@
     <string name="ar_phone">電話 ： </string>
     <string name="ar_password">新密碼 ： </string>
     <string name="ar_repassword">確認密碼 ： </string>
+    <string name="ar_bt">修改</string>
 
     <!-- 開發人員畫面  -->
     <string name="dev_title">開發人員選項</string>
