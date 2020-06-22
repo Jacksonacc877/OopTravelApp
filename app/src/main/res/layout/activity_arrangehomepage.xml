@@ -11,8 +11,9 @@
         android:id="@+id/revised_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="70dp"
         android:text="@string/revised_title"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/revised_title"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/revised_username"
         app:layout_constraintTop_toBottomOf="@+id/revised_title" />
 
@@ -42,36 +45,36 @@
 
     <TextView
         android:id="@+id/revised_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="60dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="30dp"
         android:text="@string/revised_username"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/order_username"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/revised_title"
         app:layout_constraintTop_toBottomOf="@+id/revised_title" />
 
     <TextView
         android:id="@+id/revised_orderdata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/revised_orderdata"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/arrange_list"
+        app:layout_constraintEnd_toEndOf="@+id/order_username"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/revised_username"
         app:layout_constraintTop_toBottomOf="@+id/order_username" />
 
     <ListView
         android:id="@+id/arrange_list"
         android:layout_width="261dp"
         android:layout_height="305dp"
-        android:layout_marginTop="46dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toTopOf="@+id/revised_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/revised_orderdata" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"

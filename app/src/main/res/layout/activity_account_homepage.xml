@@ -11,11 +11,10 @@
         android:id="@+id/ah_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:text="@string/ah_title"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,25 +32,24 @@
         android:id="@+id/account_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:text="@string/account"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/account_password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ah_title" />
 
     <TextView
         android:id="@+id/account_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="60dp"
         android:text="@string/password"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintBottom_toTopOf="@+id/account_bt1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_account" />
 
@@ -69,23 +67,24 @@
         android:id="@+id/account_bt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:text="@string/account_regis"
+        app:layout_constraintBottom_toBottomOf="@+id/account_bt1"
+        app:layout_constraintEnd_toEndOf="@+id/account_et2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/account_bt1"
-        app:layout_constraintTop_toBottomOf="@+id/account_password" />
+        app:layout_constraintTop_toTopOf="@+id/account_bt1" />
 
     <Button
         android:id="@+id/account_bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="100dp"
         android:text="@string/account_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_password" />
+        app:layout_constraintEnd_toStartOf="@+id/account_bt2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/account_et2"
+        tools:layout_editor_absoluteY="475dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout10"
