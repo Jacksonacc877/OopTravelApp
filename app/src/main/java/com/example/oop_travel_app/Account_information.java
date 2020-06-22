@@ -26,7 +26,8 @@ public class Account_information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_information);
         Bundle bundle=this.getIntent().getExtras();
-        str_phones=bundle.getString("str_phones");
+//        str_phones=bundle.getString("str_phones");
+        str_phones=Check_login.pphone;
         str_name=bundle.getString("str_name");
         str_userID=bundle.getString("str_userID");
         str_passwordss=bundle.getString("str_passwordss");
