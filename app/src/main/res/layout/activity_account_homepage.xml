@@ -22,7 +22,6 @@
         android:id="@+id/account_et2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toEndOf="@+id/account_password"
@@ -46,7 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/password"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/account_bt1"
@@ -57,7 +57,6 @@
         android:id="@+id/account_et1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/account_account"
@@ -80,11 +79,12 @@
         android:id="@+id/account_bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:text="@string/account_login"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
         app:layout_constraintEnd_toStartOf="@+id/account_bt2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/account_et2"
-        tools:layout_editor_absoluteY="475dp" />
+        app:layout_constraintStart_toStartOf="@+id/account_et2" />
 
     <LinearLayout
         android:id="@+id/linearLayout10"

@@ -127,8 +127,6 @@ public class ArrangeHomepage extends AppCompatActivity {
                 listView.setAdapter(layoutlist);
                 if (list.size() == 0) {
                     Toast.makeText(ArrangeHomepage.this, "No data !", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(ArrangeHomepage.this,"hay"+" "+"OK!",Toast.LENGTH_SHORT).show();
                 }
             }
 
