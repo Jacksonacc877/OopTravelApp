@@ -11,10 +11,11 @@
         android:id="@+id/inrevised_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
         android:text="@string/inrevisd_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,9 +23,9 @@
         android:id="@+id/inrevised_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="87dp"
-        android:layout_marginLeft="87dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inrevised_title" />
@@ -45,6 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:text="@string/revised_after"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -55,99 +58,96 @@
         android:id="@+id/inrevised_adultnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="21dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_childnum"
+        app:layout_constraintEnd_toEndOf="@+id/inrevised_before"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_before"
         app:layout_constraintTop_toBottomOf="@+id/inrevised_before" />
 
     <TextView
         android:id="@+id/inrevised_childnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="22dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevisd_adultspinner" />
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_infantnum"
+        app:layout_constraintEnd_toEndOf="@+id/inrevised_adultnum"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_adultnum"
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_adultnum" />
 
     <TextView
         android:id="@+id/inrevised_infantnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="23dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_childspinner" />
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_pricebefore"
+        app:layout_constraintEnd_toEndOf="@+id/inrevised_childnum"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_childnum"
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_childnum" />
 
     <Spinner
         android:id="@+id/inrevisd_adultspinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginLeft="177dp"
         android:layout_marginTop="21dp"
-        app:layout_constraintStart_toEndOf="@+id/inrevised_adultnum"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_before" />
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_childspinner"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_after"
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_after" />
 
     <Spinner
         android:id="@+id/inrevised_childspinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginLeft="177dp"
         android:layout_marginTop="17dp"
-        app:layout_constraintStart_toEndOf="@+id/inrevised_childnum"
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_infantspinner"
+        app:layout_constraintStart_toStartOf="@+id/inrevisd_adultspinner"
         app:layout_constraintTop_toBottomOf="@+id/inrevisd_adultspinner" />
 
     <Spinner
         android:id="@+id/inrevised_infantspinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginLeft="177dp"
         android:layout_marginTop="11dp"
-        app:layout_constraintStart_toEndOf="@+id/inrevised_infantnum"
+        app:layout_constraintBottom_toTopOf="@+id/inrevisd_priceafter"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_childspinner"
         app:layout_constraintTop_toBottomOf="@+id/inrevised_childspinner" />
 
     <TextView
         android:id="@+id/inrevised_pricebefore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="31dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevised_infantspinner" />
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_button"
+        app:layout_constraintEnd_toEndOf="@+id/inrevised_infantnum"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_infantnum"
+        app:layout_constraintTop_toBottomOf="@+id/inrevised_infantnum" />
 
     <TextView
         android:id="@+id/inrevisd_priceafter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginLeft="177dp"
         android:layout_marginTop="31dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/inrevised_pricebefore"
+        app:layout_constraintBottom_toTopOf="@+id/inrevised_button"
+        app:layout_constraintStart_toStartOf="@+id/inrevised_infantspinner"
         app:layout_constraintTop_toBottomOf="@+id/inrevised_infantspinner" />
 
     <Button
         android:id="@+id/inrevised_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/check_revisedbutton"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inrevisd_priceafter" />
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout13"
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:orientation="horizontal"

@@ -15,20 +15,24 @@
         android:layout_marginLeft="60dp"
         android:text="@string/arrange_tipname"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_id"
+        app:layout_constraintBottom_toBottomOf="@+id/arrange_inputtripname"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_title" />
+        app:layout_constraintTop_toTopOf="@+id/arrange_inputtripname" />
 
     <TextView
         android:id="@+id/arrange_inputtripname"
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/arrange_inputid"
-        app:layout_constraintStart_toEndOf="@+id/arrange_tripname"
+        app:layout_constraintStart_toStartOf="@+id/arrange_tripname"
         app:layout_constraintTop_toBottomOf="@+id/arrange_title" />
 
     <TextView
@@ -39,20 +43,20 @@
         android:layout_marginLeft="60dp"
         android:text="@string/arrange_tripid"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_username"
+        app:layout_constraintBottom_toBottomOf="@+id/arrange_inputid"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_tripname" />
+        app:layout_constraintTop_toTopOf="@+id/arrange_inputid" />
 
     <TextView
         android:id="@+id/arrange_inputid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/login_name"
-        app:layout_constraintStart_toEndOf="@+id/arrange_id"
+        app:layout_constraintStart_toStartOf="@+id/arrange_id"
         app:layout_constraintTop_toBottomOf="@+id/arrange_inputtripname" />
 
     <TextView
@@ -75,20 +79,20 @@
         android:layout_marginLeft="60dp"
         android:text="@string/arrange_username"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_numadult"
+        app:layout_constraintBottom_toBottomOf="@+id/login_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_id" />
+        app:layout_constraintTop_toTopOf="@+id/login_name" />
 
     <TextView
         android:id="@+id/login_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_adult"
-        app:layout_constraintStart_toEndOf="@+id/arrange_username"
+        app:layout_constraintStart_toStartOf="@+id/arrange_username"
         app:layout_constraintTop_toBottomOf="@+id/arrange_inputid" />
 
     <TextView
@@ -99,9 +103,9 @@
         android:layout_marginLeft="60dp"
         android:text="@string/numOfAdult"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_numchild"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_adult"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_username" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_adult" />
 
     <TextView
         android:id="@+id/arrange_total_amount"
@@ -111,9 +115,9 @@
         android:layout_marginLeft="60dp"
         android:text="@string/total_amount"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_button"
+        app:layout_constraintBottom_toBottomOf="@+id/arrange_amount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_numinfant" />
+        app:layout_constraintTop_toTopOf="@+id/arrange_amount" />
 
     <TextView
         android:id="@+id/arrange_numinfant"
@@ -123,18 +127,18 @@
         android:layout_marginLeft="60dp"
         android:text="@string/numOfInfant"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_total_amount"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_infant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_numchild" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_infant" />
 
     <Spinner
         android:id="@+id/spinner_infant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         app:layout_constraintBottom_toTopOf="@+id/arrange_amount"
-        app:layout_constraintStart_toEndOf="@+id/arrange_numinfant"
+        app:layout_constraintStart_toStartOf="@+id/arrange_numinfant"
         app:layout_constraintTop_toBottomOf="@+id/spinner_child" />
 
     <TextView
@@ -145,15 +149,15 @@
         android:layout_marginLeft="60dp"
         android:text="@string/numOfChild"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/arrange_numinfant"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_child"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_numadult" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_child" />
 
     <Button
         android:id="@+id/arrange_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/booked"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,36 +168,32 @@
         android:id="@+id/spinner_adult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_child"
-        app:layout_constraintStart_toEndOf="@+id/arrange_numadult"
+        app:layout_constraintStart_toStartOf="@+id/arrange_numadult"
         app:layout_constraintTop_toBottomOf="@+id/login_name" />
 
     <Spinner
         android:id="@+id/spinner_child"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_infant"
-        app:layout_constraintStart_toEndOf="@+id/arrange_numchild"
+        app:layout_constraintStart_toStartOf="@+id/arrange_numchild"
         app:layout_constraintTop_toBottomOf="@+id/spinner_adult" />
 
     <TextView
         android:id="@+id/arrange_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginRight="124dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         android:text="0"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/arrange_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/arrange_total_amount"
+        app:layout_constraintStart_toStartOf="@+id/arrange_total_amount"
         app:layout_constraintTop_toBottomOf="@+id/spinner_infant" />
 
     <LinearLayout

@@ -50,6 +50,7 @@ public class Booking extends AppCompatActivity {
         tv_title=(TextView)findViewById(R.id.arrange_inputtripname);
         Title=bundle.getString("Title");
         tv_title.setText(Title);
+        tv_title.setSelected(true);
         price=Integer.parseInt(bundle.getString("Price").toString());
         startdate=bundle.getString("StartDate");
         enddate=bundle.getString("EndDate");
