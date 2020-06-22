@@ -22,6 +22,7 @@ import com.example.oop_travel_app.database_function.DataList;
 import com.example.oop_travel_app.R;
 import com.example.oop_travel_app.order_related.ArrangeHomepage;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -108,25 +109,33 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
             }else{
                 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                 Date curdate=new Date(System.currentTimeMillis());
-                String currentdate=sdf.format(curdate);
-
-                String[] splitcurdate=currentdate.split("-");
-                int curyear=Integer.valueOf(splitcurdate[0]);
-                int curmonth=Integer.valueOf(splitcurdate[1]);
-                int curday=Integer.valueOf(splitcurdate[2]);
-                String[] splitstartdate=startday.split("-");
-                int staryear=Integer.valueOf(splitstartdate[0]);
-                int starmonth=Integer.valueOf(splitstartdate[1]);
-                int starday=Integer.valueOf(splitstartdate[2]);
-                if(curyear>staryear){
-                    okdate=false;
-                    if(curyear==staryear&&curmonth>starmonth){
+//                String currentdate=sdf.format(curdate);
+                try {
+                    if(curdate.after(sdf.parse(startday))){
                         okdate=false;
-                        if(curyear==staryear&&curmonth==starmonth&&curday>starday){
-                            okdate=false;
-                        }
                     }
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
+
+
+//                String[] splitcurdate=currentdate.split("-");
+//                int curyear=Integer.valueOf(splitcurdate[0]);
+//                int curmonth=Integer.valueOf(splitcurdate[1]);
+//                int curday=Integer.valueOf(splitcurdate[2]);
+//                String[] splitstartdate=startday.split("-");
+//                int staryear=Integer.valueOf(splitstartdate[0]);
+//                int starmonth=Integer.valueOf(splitstartdate[1]);
+//                int starday=Integer.valueOf(splitstartdate[2]);
+//                if(curyear>staryear){
+//                    okdate=false;
+//                    if(curyear==staryear&&curmonth>starmonth){
+//                        okdate=false;
+//                        if(curyear==staryear&&curmonth==starmonth&&curday>starday){
+//                            okdate=false;
+//                        }
+//                    }
+//                }
                 if(okdate){
                     Intent intent = new Intent(Trip_DetailwithBooking.this, Booking.class);
                     Bundle bundle = new Bundle();
