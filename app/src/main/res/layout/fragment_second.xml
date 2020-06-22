@@ -25,33 +25,21 @@
         android:id="@+id/go_search"
         android:layout_width="120dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="143dp"
         android:text="@string/go_search"
-        app:layout_constraintBottom_toTopOf="@+id/editor_name"
-        app:layout_constraintEnd_toStartOf="@+id/go_revised"
+        app:layout_constraintBottom_toTopOf="@+id/go_revised"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_title2" />
 
     <Button
         android:id="@+id/go_revised"
         android:layout_width="120dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="143dp"
         android:text="@string/go_revised"
-        app:layout_constraintBottom_toTopOf="@+id/editor_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/go_search" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="140dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="25dp"
-        android:src="@android:mipmap/sym_def_app_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_title2" />
+        app:layout_constraintBottom_toTopOf="@+id/go_account"
+        app:layout_constraintTop_toBottomOf="@+id/go_search"
+        tools:layout_editor_absoluteX="145dp" />
 
     <TextView
         android:id="@+id/editor_name"
@@ -69,10 +57,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/editor_name"
+        app:layout_constraintBottom_toTopOf="@+id/editor_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/go_revised" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

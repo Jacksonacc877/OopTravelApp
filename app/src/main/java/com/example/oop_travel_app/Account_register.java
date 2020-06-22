@@ -54,7 +54,7 @@ public class Account_register extends AppCompatActivity {
         public void onClick(View v) {
             String str_account=account.getText().toString();
             String str_name=name.getText().toString();
-            String str_phoness=name.getText().toString();
+            String str_phoness=phoness.getText().toString();
             String str_password=password.getText().toString();
             String str_repassword=repassword.getText().toString();
             if(str_password.equals(str_repassword)){
