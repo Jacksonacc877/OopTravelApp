@@ -92,9 +92,9 @@ public class AccountHomepage extends AppCompatActivity {
 
                 String str_phones=acc.getUserPhone();
                 String str_passwordss=acc.getPassword();
-                System.out.println("Check "+str_name);
-                System.out.println("Check "+str_userID);
-                System.out.println("Check "+str_phones);
+                System.out.println("Check 1"+str_name);
+                System.out.println("Check 2"+str_userID);
+                System.out.println("Check 3"+str_phones);
 
                 Bundle bundle=new Bundle();
                 bundle.putString("str_phones",str_phones);

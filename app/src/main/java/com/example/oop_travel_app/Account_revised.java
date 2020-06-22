@@ -19,7 +19,7 @@ public class Account_revised extends AppCompatActivity {
     private EditText ar_etname,ar_etphone,ar_etpassword,ar_etrepassword;
     private TextView ar_account_fix;
     private Button ar_bt;
-    private String str_userID,str_name,str_phones;
+    private String str_userID,str_name,str_phones,str_passwords;
     private ImageButton ards,ardo,ardh,arda,ardd;
     Account acc;
     @Override
@@ -33,6 +33,7 @@ public class Account_revised extends AppCompatActivity {
         str_userID=bundle.getString("str_userID");
         str_name =bundle.getString("str_name");
         str_phones=bundle.getString("str_phones");
+        str_passwords=bundle.getString("str_passwordss");
 
         ar_account_fix=(TextView)findViewById(R.id.ar_account_fix);
         ar_account_fix.setText(str_userID);
@@ -42,7 +43,9 @@ public class Account_revised extends AppCompatActivity {
         ar_etphone=(EditText)findViewById(R.id.ar_etphone);
         ar_etphone.setText(str_phones);
         ar_etpassword=(EditText)findViewById(R.id.ar_etpassword);
+        ar_etpassword.setText(str_passwords);
         ar_etrepassword=(EditText)findViewById(R.id.ar_etrepassword);
+        ar_etrepassword.setText(str_passwords);
 
         ar_bt=(Button)findViewById(R.id.ar_bt);
         ar_bt.setOnClickListener(ar_bt_listener);
@@ -71,7 +74,8 @@ public class Account_revised extends AppCompatActivity {
             System.out.println(et_repassword);
             str_phones=ar_etphone.getText().toString();
             if(et_password.equals(et_repassword)){
-                acc.revise(str_name,et_password,et_repassword,str_phones);
+                System.out.println("Chech 4"+str_name);
+                acc.revise(str_userID,et_password,et_repassword,str_phones);
                 Check_login.pphone=str_phones;
                 Toast.makeText(Account_revised.this,"Revised success~ ", Toast.LENGTH_LONG).show();
                 Intent intent =new Intent(Account_revised.this,AccountHomepage.class);
