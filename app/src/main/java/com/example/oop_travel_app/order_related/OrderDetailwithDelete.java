@@ -48,8 +48,6 @@ public class OrderDetailwithDelete extends AppCompatActivity {
         tripname.setText(str[7]);
         TextView userid=(TextView)findViewById(R.id.userid);
         userid.setText(str[2]);
-        TextView userphone=(TextView)findViewById(R.id.userphone);
-        userphone.setText(str[8]);
         TextView tripdate=(TextView)findViewById(R.id.tripdate);
         tripdate.setText(str[10]);
         TextView passengerinfo=(TextView)findViewById(R.id.passengerinfo);
