@@ -101,10 +101,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="15dp"
         android:text="@string/numOfAdult"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_name" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_adult" />
 
     <TextView
         android:id="@+id/arrange_total_amount"
@@ -112,10 +112,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:layout_marginLeft="84dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="231dp"
         android:text="@string/total_amount"
-        app:layout_constraintBottom_toBottomOf="@+id/arrange_button"
+        app:layout_constraintBottom_toTopOf="@+id/arrange_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_infant" />
 
@@ -125,10 +125,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:text="@string/numOfInfant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_numchild" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_infant" />
 
     <Spinner
         android:id="@+id/spinner_infant"
@@ -145,10 +145,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="@string/numOfChild"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrange_numadult" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_adult" />
 
     <Button
         android:id="@+id/arrange_button"
@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@+id/arrange_numadult"
         app:layout_constraintTop_toBottomOf="@+id/login_name" />
 
@@ -186,14 +186,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="124dp"
         android:layout_marginRight="124dp"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/arrange_total_amount"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_infant" />
+        app:layout_constraintTop_toTopOf="@+id/arrange_total_amount" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
