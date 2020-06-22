@@ -123,7 +123,6 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
                 }
                 if(curyear==staryear&&curmonth>starmonth){
                     okdate=false;
-                    int i=0;
                 }
                 if(curyear==staryear&&curmonth==starmonth&&curday>starday){
                     okdate=false;
