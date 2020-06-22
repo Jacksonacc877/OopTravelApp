@@ -73,7 +73,6 @@ public class Account_revised extends AppCompatActivity {
             if(et_password.equals(et_repassword)){
                 acc.revise(str_name,et_password,et_repassword,str_phones);
                 Check_login.pphone=str_phones;
-
                 Toast.makeText(Account_revised.this,"Revised success~ ", Toast.LENGTH_LONG).show();
                 Intent intent =new Intent(Account_revised.this,AccountHomepage.class);
                 startActivity(intent);
