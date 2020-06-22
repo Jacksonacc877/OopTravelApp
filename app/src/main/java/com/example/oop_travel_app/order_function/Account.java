@@ -76,17 +76,17 @@ public class Account {
 		return data;
 	}
 	public boolean revise(String userName, String password, String checkedpassword, String userPhone){
-		System.out.println("check userID "+userID);
 		ArrayList<Account> userIDs = fsh.getUserIDs();
-		Account order=new Account();
+		Account acc=new Account();
 		for(Account a:userIDs){
+			System.out.println("hi"+a.getUserID());
 			if (userName.equals(a.getUserID())){
-				order=a;
+				acc=a;
 				break;
 			}
 		}
 		if (checkedpassword.equals(password)){
-			fsh.modifyAccount(order.getUserID(),userName, password,userPhone);
+			fsh.modifyAccount(acc.getUserID(),userName, password,userPhone);
 			return true;
 		}else{
 			return false;
