@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/ar_repassword"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etpassword" />
+        app:layout_constraintBottom_toBottomOf="@+id/ar_repassword"
+        app:layout_constraintStart_toEndOf="@+id/ar_repassword" />
 
     <TextView
         android:id="@+id/ar_account_fix"
@@ -37,10 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="40dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/ar_account"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintBottom_toBottomOf="@+id/ar_account"
+        app:layout_constraintStart_toEndOf="@+id/ar_account" />
 
     <EditText
         android:id="@+id/ar_etpassword"
@@ -48,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/ar_password"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etphone" />
+        app:layout_constraintBottom_toBottomOf="@+id/ar_password"
+        app:layout_constraintStart_toEndOf="@+id/ar_password" />
 
     <EditText
         android:id="@+id/ar_etname"
@@ -60,12 +59,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/ar_name"
-        app:layout_constraintTop_toBottomOf="@+id/ar_account_fix" />
+        app:layout_constraintBottom_toBottomOf="@+id/ar_name"
+        app:layout_constraintStart_toEndOf="@+id/ar_name" />
 
     <EditText
         android:id="@+id/ar_etphone"
@@ -73,12 +72,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/ar_phone"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etname" />
+        app:layout_constraintBottom_toBottomOf="@+id/ar_phone"
+        app:layout_constraintStart_toEndOf="@+id/ar_phone" />
 
     <TextView
         android:id="@+id/ar_repassword"
@@ -86,11 +85,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/ar_repassword"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ar_bt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/ar_password" />
 
     <TextView
         android:id="@+id/ar_password"
@@ -98,23 +98,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
         android:text="@string/ar_password"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ar_repassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etphone" />
+        app:layout_constraintTop_toBottomOf="@+id/ar_phone" />
 
     <TextView
         android:id="@+id/ar_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="23dp"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
         android:text="@string/ar_phone"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ar_password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etname" />
+        app:layout_constraintTop_toBottomOf="@+id/ar_name" />
 
     <TextView
         android:id="@+id/ar_name"
@@ -122,11 +122,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
         android:text="@string/ar_name"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ar_phone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ar_account_fix" />
+        app:layout_constraintTop_toBottomOf="@+id/ar_account" />
 
     <TextView
         android:id="@+id/ar_account"
@@ -134,9 +134,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
         android:text="@string/ar_account"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ar_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -144,15 +144,12 @@
         android:id="@+id/ar_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="70dp"
         android:text="@string/ar_bt"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.346"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ar_etrepassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout7"

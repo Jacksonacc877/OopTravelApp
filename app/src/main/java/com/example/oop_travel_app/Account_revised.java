@@ -70,8 +70,10 @@ public class Account_revised extends AppCompatActivity {
             String et_repassword=ar_etrepassword.getText().toString();
             System.out.println(et_repassword);
             str_phones=ar_etphone.getText().toString();
+            String etname=ar_etname.getText().toString();
             if(et_password.equals(et_repassword)){
-                acc.revise(str_name,et_password,et_repassword,str_phones);
+                Check_login.alreadylogin=0;
+                acc.revise(str_name,etname,et_password,et_repassword,str_phones);
                 Check_login.pphone=str_phones;
 
                 Toast.makeText(Account_revised.this,"Revised success~ ", Toast.LENGTH_LONG).show();

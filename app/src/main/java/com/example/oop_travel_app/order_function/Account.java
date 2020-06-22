@@ -75,18 +75,18 @@ public class Account {
 	public ArrayList<String> outputData(ArrayList<String> data){
 		return data;
 	}
-	public boolean revise(String userName, String password, String checkedpassword, String userPhone){
+	public boolean revise(String userID,String name, String password, String checkedpassword, String userPhone){
 		System.out.println("check userID "+userID);
 		ArrayList<Account> userIDs = fsh.getUserIDs();
 		Account order=new Account();
 		for(Account a:userIDs){
-			if (userName.equals(a.getUserID())){
+			if (userID.equals(a.getUserID())){
 				order=a;
 				break;
 			}
 		}
 		if (checkedpassword.equals(password)){
-			fsh.modifyAccount(order.getUserID(),userName, password,userPhone);
+			fsh.modifyAccount(order.getUserID(),name, password,userPhone);
 			return true;
 		}else{
 			return false;

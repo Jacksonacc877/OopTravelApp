@@ -62,6 +62,7 @@ public class Account_register extends AppCompatActivity {
                 Account acc=new Account("");
                 checkregis=acc.register(str_account,str_name,str_password,str_phoness);
                 if(checkregis){
+                    Check_login.alreadylogin=0;
                     AlertDialog.Builder builder = new AlertDialog.Builder(Account_register.this);
                     builder.setTitle("帳號註冊成功");
                     builder.setMessage("請重新登入");
