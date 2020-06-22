@@ -120,12 +120,13 @@ public class Trip_DetailwithBooking extends AppCompatActivity {
                 int starday=Integer.valueOf(splitstartdate[2]);
                 if(curyear>staryear){
                     okdate=false;
-                    if(curyear==staryear&&curmonth>starmonth){
-                        okdate=false;
-                        if(curyear==staryear&&curmonth==starmonth&&curday>starday){
-                            okdate=false;
-                        }
-                    }
+                }
+                if(curyear==staryear&&curmonth>starmonth){
+                    okdate=false;
+                    int i=0;
+                }
+                if(curyear==staryear&&curmonth==starmonth&&curday>starday){
+                    okdate=false;
                 }
                 if(okdate){
                     Intent intent = new Intent(Trip_DetailwithBooking.this, Booking.class);
